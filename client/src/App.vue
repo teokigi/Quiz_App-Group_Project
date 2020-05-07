@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <page-header></page-header>
+    <page-header />
   </div>
 </template>
 
