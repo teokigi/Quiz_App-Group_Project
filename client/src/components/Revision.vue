@@ -10,7 +10,21 @@
 </template>
 
 <script>
+import {eventBus} from '@/main.js';
+
 export default {
+  name: 'revision',
+  props: ['categories'],
+  data() {
+    return {
+      selectedTopic: null
+    }
+  },
+  methods: {
+    selectedTopic() {
+      eventBus.$emit('topic-selected', this.selectedTopic)
+    } // TODO: Add eventBus.$on to App.vue!
+  }
 }
 </script>
 
