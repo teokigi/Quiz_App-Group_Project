@@ -23,7 +23,7 @@ export default {
   methods: {
     selectedTopic() {
       eventBus.$emit('topic-selected', this.selectedTopic)
-    } // TODO: Add eventBus.$on to App.vue!
+    }
   }
 }
 </script>
