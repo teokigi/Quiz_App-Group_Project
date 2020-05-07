@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="header">
     <h1 class="site-name">Quizia</h1>
-    <h3>
-      <span class="nav-links" v-on:click="onClickRevision">Revise</span>
-      <span class="nav-links" v-on:click="onClickQuiz">Quiz</span>
-      <span class="nav-links" v-on:click="onClickStats">Stats</span>
+    <h3 class="nav-links-group">
+      <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
+      <span class="nav-links" v-on:click="onClickQuiz"> Quiz </span>
+      <span class="nav-links" v-on:click="onClickStats">  Stats </span>
     </h3>
   </div>
 </template>
