@@ -44,7 +44,7 @@ db.education.insertMany([
               },
   {
     "category": "Language: Japanese",
-    "youtubeURL":"https:www.youtube.com/watch?v=66P5_R37vek",
+    "youtubeURL":"https://www.youtube.com/watch?v=66P5_R37vek",
     "questions":[
               {"question1":"How do you say, I understand?",
                "correct_answer": "わかりました",
