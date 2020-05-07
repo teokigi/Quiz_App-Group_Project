@@ -1,8 +1,11 @@
 <template lang="html">
   <div class="header">
-    <h1>Quizia</h1>
-    <h3 class="nav-links" v-on:click="onClickQuiz">Quiz</h3>
-    <h3 class="nav-links" v-on:click="onClickStats">Stats</h3>
+    <h1 class="site-name">Quizia</h1>
+    <h3 class="nav-links-group">
+      <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
+      <span class="nav-links" v-on:click="onClickQuiz"> Quiz </span>
+      <span class="nav-links" v-on:click="onClickStats">  Stats </span>
+    </h3>
   </div>
 </template>
 
@@ -13,10 +16,13 @@ export default {
   name: 'page-header',
   methods: {
     onClickQuiz() {
-      eventBus.$emit('selected-nav-quiz')
+      eventBus.$emit('selected-nav-quiz', 2)
     },
     onClickStats() {
-      eventBus.$emit('selected-nav-stats')
+      eventBus.$emit('selected-nav-stats', 3)
+    },
+    onClickRevision() {
+      eventBus.$emit('selected-nav-revision', 1)
     }
   }
 }
