@@ -6,14 +6,14 @@ app.use(cors());
 
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-const createRouter = require('.helper/create_router.js');
+const createRouter = require('./helper/create_Router.js');
 
 app.use(bodyParser.json());
 
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
-    const db = client.db('topics');
-    const questionsColelction = db.collection('questions');
+    const db = client.db('education_hub');
+    const questionsColelction = db.collection('education_hub');
     const questionsRouter = createRouter(questionsCollection);
     app.use('/api/questions', questionsRouter);
   })
