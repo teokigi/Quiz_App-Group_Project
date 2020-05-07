@@ -3,7 +3,7 @@
     <h2>{{selectedTopic.category}}</h2>
     <br>
     <p>Learn everything you'll need for the test </p>
-    <iframe :src="topic.youtubeURL" width="960" height="540" />
+    <iframe :src="selectedTopic.youtubeURL" width="960" height="540" />
   </div>
 </template>
 

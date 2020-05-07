@@ -6,7 +6,7 @@
       <option disabled value="">select a topic...</option>
       <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
     </select>
-    <revision-detail :selectedTopic="selectedTopic" />
+    <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
   </div>
 </template>
 
