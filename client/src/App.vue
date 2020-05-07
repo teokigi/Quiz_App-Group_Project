@@ -1,28 +1,49 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="html">
+  <div>
+    <section>
+      <page-header />
+    </section>
+    <div class="body">
+      <revision v-if="viewSelector === 1" />
+      <quiz v-if="viewSelector === 2" />
+      <stats v-if="viewSelector === 3" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PageHeader from '@/components/PageHeader.vue';
+import {eventBus} from '@/main.js';
+import Quiz from '@/components/Quiz.vue';
+import Revision from '@/components/Revision.vue';
+import Stats from '@/components/Stats.vue';
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
+    'page-header': PageHeader,
+    'quiz': Quiz,
+    'revision': Revision,
+    'stats': Stats
+  },
+  data() {
+    return {
+      viewSelector: 0
+    }
+  },
+  mounted() {
+    eventBus.$on('selected-nav-revision', (navNumber) => {
+      this.viewSelector = navNumber
+    })
+    eventBus.$on('selected-nav-quiz', (navNumber) => {
+      this.viewSelector = navNumber
+    })
+    eventBus.$on('selected-nav-stats', (navNumber) => {
+      this.viewSelector = navNumber
+    })
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>
