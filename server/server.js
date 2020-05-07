@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
     const db = client.db('education_hub');
-    const questionsCollelction = db.collection('education_hub');
+    const questionsCollection = db.collection('education_hub');
     const questionsRouter = createRouter(questionsCollection);
     app.use('/api/questions', questionsRouter);
   })
