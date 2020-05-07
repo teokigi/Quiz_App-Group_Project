@@ -4,7 +4,7 @@ db.dropDatabase();
 db.education.insertMany([
   {
     "category": "Biology: The Ecosystem",
-    "youtubeURL": "https://youtu.be/eGG7hyx_HlA",
+    "youtubeURL": "https://youtube.com/embed/eGG7hyx_HlA",
     "questions":[
                 {"question1":"What element in an Ecosystem is know as a Primary Producer?",
                 "correct_answer": "Plants",
@@ -44,7 +44,7 @@ db.education.insertMany([
               },
   {
     "category": "Language: Japanese",
-    "youtubeURL":"https://www.youtube.com/watch?v=66P5_R37vek",
+    "youtubeURL":"https://www.youtube.com/embed/66P5_R37vek",
     "questions":[
               {"question1":"How do you say, I understand?",
                "correct_answer": "わかりました",
@@ -84,7 +84,7 @@ db.education.insertMany([
            },
   {
     "category": "Classical Studies: The Odyssey",
-    "youtubeURL": "https://youtu.be/MS4jk5kavy4",
+    "youtubeURL": "https://youtube.com/embed/MS4jk5kavy4",
     "questions": [
                {"question1":"In which century was the Odyssey and Iliad  written?",
                 "correct_answer": "8th",
