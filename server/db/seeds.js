@@ -24,7 +24,7 @@ db.education.insertMany([
                "answer2":"わかりました",
                "answer3":"わたしわ",
                "answer4":"わがまま"
-                },
+              },
               {"question2":"How do you say, Thank you?",
                "correct_answer": "ありがとう",
                "answer1":"ありがとう",
@@ -53,7 +53,7 @@ db.education.insertMany([
               "answer3":"いええ",
               "answer4":"いよ"
              }
-  },
+  ]},
   {
     "category": "Classical Studies: The Odyssey",
     "youtubeURL": "https://youtu.be/MS4jk5kavy4",
