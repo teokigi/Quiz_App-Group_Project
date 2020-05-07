@@ -2,21 +2,21 @@ use education_hub;
 db.dropDatabase();
 
 db.education.insertMany([
+  // {
+  //   "category": "Biology: The Ecosystem",
+  //   "youtubeURL": "LINK",
+  //   "questions": [
+  //               {"question1":"How do you introduce yourself?",
+  //               "correct_answer": "blah",
+  //               "answer1":"blah, blah, blah",
+  //               "answer2":"blah",
+  //               "answer3":"blah"
+  //             }
+  //             ]
+  // },
   {
-    "category": "Mythology",
-    "youtubeURL": "LINK",
-    "questions": [
-                {"question1":"How do you introduce yourself?",
-                "correct_answer": "blah",
-                "answer1":"blah, blah, blah",
-                "answer2":"blah",
-                "answer3":"blah"
-              }
-              ]
-  },
-  {
-    "category": "Japanese Language",
-    "youtubeURL": https:"www.youtube.com/watch?v=66P5_R37vek",
+    "category": "Language: Japanese",
+    "youtubeURL":"https:www.youtube.com/watch?v=66P5_R37vek",
     "questions":[
               {"question1":"How do you say, I understand?",
                "correct_answer": "わかりました",
@@ -53,23 +53,45 @@ db.education.insertMany([
               "answer3":"いええ",
               "answer4":"いよ"
              }
-//   },
-//   {
-//     catagory: "Classical Studies",
-//     youtubeURL: "LINK",
-//     questions: [
-//                {"question1":"How do you introduce  yourself?",
-//                 "correct_answer" "blah",
-//                 "answer1":"blah, blah, blah",
-//                 "answer2":"blah",
-//                 "answer3":"blah"
-//                 },
-//                 {
-//                 "question2": etc...
-//                 "question3": etc...
-//                 "question4": etc...
-//                 "question5": etc...
-//                 "question10": etc...
-//                 }]
-//   }
+  },
+  {
+    "category": "Classical Studies: The Odyssey",
+    "youtubeURL": "https://youtu.be/MS4jk5kavy4",
+    "questions": [
+               {"question1":"In which century was the Odyssey and Iliad  written?",
+                "correct_answer": "8th",
+                "answer1":"7th",
+                "answer2":"9th",
+                "answer3":"10th",
+                "answer4":"8th"
+                },
+                {"question2":"What is the name of the cyclops in the Odyssey?",
+                "correct_answer": "Polyphemus",
+                "answer1":"Polyphemus",
+                "answer2":"Scylla",
+                "answer3":"Charibdis",
+                "answer4":"The Lotus Eater"
+                },
+                {"question3":"How does Odysseus get revenge on the cyclops for eating his men?",
+                "correct_answer": "Blinds him",
+                "answer1":"Cuts off his feet",
+                "answer2":"Cuts out his tongue",
+                "answer3":"Blinds him",
+                "answer4":"Cuts off his hands"
+                },
+                {"question4":"What name did Odysseus give when he met the cyclops?",
+                "correct_answer": "Noman",
+                "answer1":"Norman",
+                "answer2":"Odysseus",
+                "answer3":"Odie",
+                "answer4":"Noman"
+                },
+                {"question5":"At the start of the Odyssey, which Nymph has imprisoned Odysseus on the Isle of Ogygia?",
+                "correct_answer": "Calypsso",
+                "answer1":"Thetis",
+                "answer2":"Calypsso",
+                "answer3":"Aegina",
+                "answer4":"Noman"
+                }
+  }
 ]);
