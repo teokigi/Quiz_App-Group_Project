@@ -12,28 +12,28 @@ db.education.insertMany([
                 "answer2":"Mammals",
                 "answer3":"Atmosphere",
                 "answer4":"Plants"
-                }
+              },
                 {"question2":"Which of these would be known as a Consumer?",
                 "correct_answer": "Wolf",
                 "answer1":"Dung Beetle",
                 "answer2":"Wolf",
                 "answer3":"Giraffe",
                 "answer4":"All of These"
-                }
+              },
                 {"question3":"What is the primary method of Consumers to return nutrients to the Primary Producers?",
                 "correct_answer": "Death",
                 "answer1":"Eating",
                 "answer2":"Excretion",
                 "answer3":"Death",
                 "answer4":"Breathing"
-                }
+              },
                 {"question4":"What makes an Ecosystem stable?",
                 "correct_answer": "Diversity",
                 "answer1":"Biotic Bias",
                 "answer2":"Diversity",
                 "answer3":"Abiotic Bias",
                 "answer4":"Simplicity"
-                }
+              },
                 {"question5":"How old are some Coral Reefs?",
                 "correct_answer": "500 Million Years",
                 "answer1":"50 Million Years",
