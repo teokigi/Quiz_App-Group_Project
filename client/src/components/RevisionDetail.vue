@@ -3,16 +3,17 @@
     <h2>{{selectedTopic.category}}</h2>
     <br>
     <p>Learn everything you'll need for the test </p>
-    <embed type="video/quicktime" :src="selectedTopic.youtubeURL" width="300" height="300">
+    <iframe :src="selectedTopic.youtubeURL" width="960" height="540" />
   </div>
 </template>
 
 <script>
-import {eventBus} from '@/main.js';
+import Revision from '@/components/Revision.vue';
 
 export default {
   name: 'revision-detail',
   props: ['selectedTopic']
+
 }
 </script>
 
