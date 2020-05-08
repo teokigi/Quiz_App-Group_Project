@@ -25,8 +25,8 @@
       <button type="submit"> Continue </button>
     </form>
 
-    <question-list v-if="selectedTopic" :selectedTopic="selectedTopic" />
     <hr>
+    <question-list v-if="selectedTopic" :selectedTopic="selectedTopic" />
 
   </div>
 </template>
@@ -36,6 +36,7 @@ import {eventBus} from '@/main.js';
 import TopicsService from '@/services/TopicsService.js';
 import QuestionList from '@/components/QuestionList.vue';
 import UsersService from '@/services/UsersService.js';
+import QuestionListItem from '@/components/QuestionListItem.vue';
 
 export default {
   name: 'test-page',
@@ -50,7 +51,8 @@ export default {
     }
   },
   components: {
-    'question-list': QuestionList
+    'question-list': QuestionList,
+    'question-list-item': QuestionListItem
   },
   methods: {
     topicSelected() {
@@ -60,7 +62,8 @@ export default {
       const payload = {
         user: this.user,
         emailAddress: this.emailAddress,
-        password: this.password
+        password: this.password,
+        topic: selectedTopic
       }
       eventBus.$emit('user-login', payload => {
         user = "",
