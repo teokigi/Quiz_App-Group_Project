@@ -2,10 +2,20 @@
   <div class="">
     <h2>Start a Test</h2>
     <label for="revision">Select a Test Topic: </label>
+
     <select id="revision" v-on:change="topicSelected" v-model="selectedTopic">
       <option disabled value="">select a topic...</option>
       <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
     </select>
+
+    <form id="username-form" v-on:submit.prevent="onSubmit">
+      <span>
+        <label for="name-field">Name: </label>
+        <input required type="text" id="name-field" v-model="user">
+        <button type="submit"> Continue </button>
+      </span>
+    </form>
+
     <question-list v-if="selectedTopic" :selectedTopic="selectedTopic" />
   </div>
 </template>
