@@ -17,7 +17,7 @@ import {eventBus} from '@/main.js';
 import TestPage from '@/components/TestPage.vue';
 import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
-import UsersService from '@services/UsersService.js';
+import UsersService from '@/services/UsersService.js';
 
 export default {
   name: 'app',
