@@ -17,6 +17,7 @@
     </form>
 
     <question-list v-if="selectedTopic" :selectedTopic="selectedTopic" />
+    <hr>
   </div>
 </template>
 
@@ -31,7 +32,8 @@ export default {
   data() {
     return {
       selectedTopic: null,
-      topics: []
+      topics: [],
+      user: null
     }
   },
   components: {
@@ -40,6 +42,12 @@ export default {
   methods: {
     topicSelected() {
       eventBus.$emit('topic-selected', this.selectedTopic)
+    },
+    onSubmit() {
+      const payload = {
+        user: this.user
+      }
+      eventBus.$emit('user-login', payload)
     }
   },
   mounted() {

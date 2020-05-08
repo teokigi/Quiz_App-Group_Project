@@ -17,6 +17,7 @@ import {eventBus} from '@/main.js';
 import TestPage from '@/components/TestPage.vue';
 import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
+import UsersService from '@services/UsersService.js';
 
 export default {
   name: 'app',
@@ -28,18 +29,23 @@ export default {
   },
   data() {
     return {
-      viewSelector: 0
+      viewSelector: 0,
+      users: []
     }
   },
   mounted() {
     eventBus.$on('selected-nav-revision', (navNumber) => {
       this.viewSelector = navNumber
-    })
+    }),
     eventBus.$on('selected-nav-test', (navNumber) => {
       this.viewSelector = navNumber
-    })
+    }),
     eventBus.$on('selected-nav-stats', (navNumber) => {
       this.viewSelector = navNumber
+    }),
+    eventBus.$on('user-login', (payload) => {
+      UsersService.postUser(payload)
+      .then(user => this.users.push(user))
     })
   }
 }
