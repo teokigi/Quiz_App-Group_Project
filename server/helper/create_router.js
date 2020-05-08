@@ -43,6 +43,18 @@ const createRouter = function (collection) {
       });
   });
 
+  router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedQuestion = req.body;
+    collection.findOneAndUpdate(
+      {_id: ObjectID(id)},
+      {$set: updatedQuestion},
+      {returnOriginal: false}
+    )
+    .then(result => res.json(result.value))
+
+  });
+
   return router;
 
 };
