@@ -62,8 +62,11 @@ export default {
         emailAddress: this.emailAddress,
         password: this.password
       }
-      eventBus.$emit('user-login', payload)
-      .then(this.user = this.emailAddress = this.password = "") 
+      eventBus.$emit('user-login', payload => {
+        user = "",
+        emailAddress = "",
+        password = ""
+      })
     }
   },
   mounted() {
