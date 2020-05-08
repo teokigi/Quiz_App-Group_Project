@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    
+
     <h2>Start a Test</h2>
     <label for="revision">Select a Test Topic: </label>
 
@@ -35,6 +35,7 @@
 import {eventBus} from '@/main.js';
 import TopicsService from '@/services/TopicsService.js';
 import QuestionList from '@/components/QuestionList.vue';
+import UsersService from '@/services/UsersService.js';
 
 export default {
   name: 'test-page',
@@ -43,7 +44,9 @@ export default {
     return {
       selectedTopic: null,
       topics: [],
-      user: null
+      user: null,
+      emailAddress: null,
+      password: null
     }
   },
   components: {
@@ -55,9 +58,12 @@ export default {
     },
     onSubmit() {
       const payload = {
-        user: this.user
+        user: this.user,
+        emailAddress: this.emailAddress,
+        password: this.password
       }
       eventBus.$emit('user-login', payload)
+      .then(this.user = this.emailAddress = this.password = "") 
     }
   },
   mounted() {

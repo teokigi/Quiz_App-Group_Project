@@ -5,9 +5,27 @@ export default {
     return fetch(baseURL)
     .then(res => res.json())
   },
-  getUser() {
 
+  getUser(id) {
+    return fetch(baseURL + id)
+    .then(res => res.json())
+  },
+
+  updateUser(id, payload) {
+    return fetch(baseURL + id, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+  },
+
+  postUser(payload) {
+    return fetch(baseURL, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
   }
-
-  // TODO: Make a get single user function and link it to the TestPage
 }
