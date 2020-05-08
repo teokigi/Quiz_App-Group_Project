@@ -1,22 +1,22 @@
 <template lang="html">
   <div class="">
-    <h2>Do Some Revision?</h2>
-    <label for="revision">Select a Revision Topic: </label>
+    <h2>Start a Test</h2>
+    <label for="revision">Select a Test Topic: </label>
     <select id="revision" v-on:change="topicSelected" v-model="selectedTopic">
       <option disabled value="">select a topic...</option>
       <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
     </select>
-    <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
+    <question-list v-if="selectedTopic" :selectedTopic="selectedTopic" />
   </div>
 </template>
 
 <script>
 import {eventBus} from '@/main.js';
 import TopicsService from '@/services/TopicsService.js';
-import RevisionDetail from '@/components/RevisionDetail.vue';
+import QuestionList from '@/components/QuestionList.vue';
 
 export default {
-  name: 'revision',
+  name: 'test-page',
   props: ['categories'],
   data() {
     return {
@@ -25,7 +25,7 @@ export default {
     }
   },
   components: {
-    'revision-detail': RevisionDetail
+    'question-list': QuestionList
   },
   methods: {
     topicSelected() {

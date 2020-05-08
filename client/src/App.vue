@@ -5,7 +5,7 @@
     </section>
     <div class="body">
       <revision v-if="viewSelector === 1" />
-      <quiz v-if="viewSelector === 2" />
+      <test-page v-if="viewSelector === 2" />
       <stats v-if="viewSelector === 3" />
     </div>
   </div>
@@ -14,7 +14,7 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue';
 import {eventBus} from '@/main.js';
-import Quiz from '@/components/Quiz.vue';
+import TestPage from '@/components/TestPage.vue';
 import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
 
@@ -22,7 +22,7 @@ export default {
   name: 'app',
   components: {
     'page-header': PageHeader,
-    'quiz': Quiz,
+    'test-page': TestPage,
     'revision': Revision,
     'stats': Stats
   },
@@ -35,7 +35,7 @@ export default {
     eventBus.$on('selected-nav-revision', (navNumber) => {
       this.viewSelector = navNumber
     })
-    eventBus.$on('selected-nav-quiz', (navNumber) => {
+    eventBus.$on('selected-nav-test', (navNumber) => {
       this.viewSelector = navNumber
     })
     eventBus.$on('selected-nav-stats', (navNumber) => {

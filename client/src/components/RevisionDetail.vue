@@ -2,7 +2,7 @@
   <div class="selected-topic">
     <h2>{{selectedTopic.category}}</h2>
     <br>
-    <p>Learn everything you'll need for the test </p>
+    <p>Learn everything you'll need for the test here!</p>
     <iframe :src="selectedTopic.youtubeURL" width="960" height="540" />
   </div>
 </template>
