@@ -12,7 +12,6 @@
 
 <script>
 import {eventBus} from '@/main.js';
-import
 
 export default {
 }
