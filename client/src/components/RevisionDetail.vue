@@ -1,9 +1,12 @@
 <template lang="html">
-  <div class="selected-topic">
-    <h2>{{selectedTopic.category}}</h2>
-    <br>
+  <div class="selectedRevisionWrapper">
+    <div class="detailHeading">
+    {{selectedTopic.category}}
+    </div>
+    <div class="detailBody">
     <p>Learn everything you'll need for the test here!</p>
-    <iframe :src="selectedTopic.youtubeURL" width="960" height="540" />
+    <iframe :src="selectedTopic.youtubeURL" width="680" height="420" />
+    </div>
   </div>
 </template>
 
@@ -18,4 +21,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.selectedRevisionWrapper{
+    width:100%;
+}
+.detailHeading{
+    width:100%;
+    font-size:40px;
+}
+.selected-topic{
+    width:100%;
+
+}
 </style>

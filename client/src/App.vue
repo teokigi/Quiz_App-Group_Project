@@ -48,7 +48,7 @@ export default {
 <style lang="css" scoped>
 #app{
     width:100%;
-    height:700px;
+    height:800px;
     display:flex;
     flex-direction:column;
     box-sizing:border-box;
