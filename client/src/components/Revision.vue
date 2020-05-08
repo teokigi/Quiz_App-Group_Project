@@ -11,9 +11,9 @@
             </select>
         </div>
 
-        <div class="revisionSelectedWrapper">
-            <button type="button" v-on:click="selectedTopic=0">Return To Topic Selector</button>
-            <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
+        <div class="revisionSelectedWrapper"v-if="selectedTopic" >
+            <button type="button" v-on:click="selectedTopic= null" >Return To Topic Selector</button>
+            <revision-detail :selectedTopic="selectedTopic" />
         </div>
 
     </div>

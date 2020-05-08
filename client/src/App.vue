@@ -54,7 +54,7 @@ export default {
 <style lang="css" scoped>
 #app{
     width:100%;
-    height:800px;
+    height:900px;
     display:flex;
     flex-direction:column;
     box-sizing:border-box;
@@ -64,7 +64,6 @@ export default {
     margin:0px;
 
     border-style:solid;
-    border-radius:40px;
     border-width:thin;
     background-image: linear-gradient(-45deg,red, yellow);
     background-repeat:no-repeat;
@@ -72,7 +71,10 @@ export default {
 
 }
 .pageHeader{
-
+width:90%;
+display:flex;
+flex-direction:column;
+align-self:center;
 }
 .body{
     width:100%;

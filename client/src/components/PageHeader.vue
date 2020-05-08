@@ -44,6 +44,7 @@ export default {
     background-color:black;
     color:white;
     padding:5px;
+    text-shadow: 0px 0px 4px red, 2px 2px 8px white;
 
 }
 .site-name{
