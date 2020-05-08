@@ -12,7 +12,7 @@
 
 <script>
 import {eventBus} from '@/main.js';
-import RevisionService from '@/services/RevisionService.js';
+import TopicsService from '@/services/TopicsService.js';
 import RevisionDetail from '@/components/RevisionDetail.vue';
 
 export default {
@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    RevisionService.getTopics()
+    TopicsService.getTopics()
     .then(topics => this.topics = topics)
   }
 }
