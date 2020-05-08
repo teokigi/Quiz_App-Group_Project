@@ -1,14 +1,14 @@
 <template lang="html">
-  <div>
-    <section>
+  <body id="app">
+    <section class="header">
       <page-header />
     </section>
     <div class="body">
       <revision v-if="viewSelector === 1" />
       <quiz v-if="viewSelector === 2" />
-      <stats v-if="viewSelector === 3" />
+      <stats v-if="viewSelector === 3" />0
     </div>
-  </div>
+</body>
 </template>
 
 <script>
@@ -46,8 +46,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
-body{
-    background-color:grey;
+#app{
+    background-color:coral;
 }
 div{
     border-style:solid;
