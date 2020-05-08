@@ -3,17 +3,21 @@
     <div class="revisionWrapper">
 
         <div class="revisionSelector" v-if="!selectedTopic">
-            <h2>Do Some Revision?</h2>
-            <label for="revision">Select a Revision Topic: </label>
-            <select name="revision" v-on:change="topicSelected" v-model="selectedTopic">
-                <option disabled value="">select a topic...</option>
-                <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
-            </select>
+            <div class="revisionHeading">
+                Care To study something new?
+            </div>
+            <div>
+                <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
+                <select class="selectorTxt" name="revision" v-on:change="topicSelected" v-model="selectedTopic">
+                    <option disabled value="">select a topic...</option>
+                    <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
+                </select>
+            </div>
         </div>
 
         <div class="revisionSelectedWrapper"v-if="selectedTopic" >
-            <button type="button" v-on:click="selectedTopic= null" >Return To Topic Selector</button>
             <revision-detail :selectedTopic="selectedTopic" />
+            <button class="returnButton" type="button" v-on:click="selectedTopic= null" >Return To Topic Selector</button>
         </div>
 
     </div>
@@ -56,6 +60,17 @@ export default {
     flex-direction:column;
     align-items:center;
 }
+.revisionHeading{
+    font-family:nunito;
+    text-align:center;
+    font-weight:600;
+    font-size:30px;
+    background-color:white;
+    border-radius:35px;
+    padding:10px;
+    margin:20px;
+    box-shadow: 10px 10px 5px black;
+}
 .revisionSelectedWrapper{
     width:100%;
     height:500px;
@@ -63,6 +78,20 @@ export default {
     flex-direction:column;
     align-items:center;
 }
-.revisionTopic{
+.selectorTxt{
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    text-align:center;
+}
+.returnButton{
+    margin:10px;
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    text-align:center;
+    border-radius:10px;
+    background-color:lightblue;
+    box-shadow:5px 5px 10px black;
 }
 </style>

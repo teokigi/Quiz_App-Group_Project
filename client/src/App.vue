@@ -71,16 +71,14 @@ export default {
 
 }
 .pageHeader{
-width:90%;
+width:100%;
 display:flex;
 flex-direction:column;
 align-self:center;
 }
 .body{
-    width:100%;
+    width:90%;
+    align-self:center;
 }
-div{
-    border-style:solid;
-    border-width:thin;
-}
+
 </style>

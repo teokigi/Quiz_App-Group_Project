@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="headWrapper">
   <div class="site-name">
-    <h1>Exam Buddy</h1>
+      Exam Buddy
     </div>
     <div class="nav-links-group">
       <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
@@ -33,9 +33,8 @@ export default {
 <style lang="css" scoped>
 .headWrapper{
     width:100%;
-    height:110px;
+    height:150px;
     padding:5px;
-    border-radius:30px;
     box-sizing:border-box;
     text-align:center;
     display:flex;
@@ -48,7 +47,11 @@ export default {
 
 }
 .site-name{
-    letter-spacing:10px;
+    letter-spacing:60px;
+    font-family:'nunito';
+    font-weight:800;
+    font-size:70px;
+    height:60%;
 }
 .nav-links-group{
     width:100%;
@@ -57,10 +60,15 @@ export default {
     justify-content:space-around;
 }
 .nav-links{
- border-bottom-style:dotted;
- font-size:20px;
+ border-bottom-style:solid;
+ font-family:'nunito';
+ font-weight:400;
+ font-size:25px;
+     padding:5px;
 }
 .nav-links:hover{
-    border-bottom:solid;
+    border-radius:30px;
+    background-color:grey;
+
 }
 </style>
