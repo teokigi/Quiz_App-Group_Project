@@ -1,18 +1,22 @@
 <template lang="html">
-  <div class="revisionWrapper">
-    <div class="revisionSelector" v-if="!selectedTopic">
-    <h2>Do Some Revision?</h2>
-    <label for="revision">Select a Revision Topic: </label>
-    <select name="revision" v-on:change="topicSelected" v-model="selectedTopic">
-      <option disabled value="">select a topic...</option>
-      <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
-    </select>
-    </div class="revisionSelectedWrapper">
-    <div class="revisionTopic" v-if="selectedTopic">
-    <button type="button" v-on:click="selectedTopic=0">Return To Topic Selector</button>
-    <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
+
+    <div class="revisionWrapper">
+
+        <div class="revisionSelector" v-if="!selectedTopic">
+            <h2>Do Some Revision?</h2>
+            <label for="revision">Select a Revision Topic: </label>
+            <select name="revision" v-on:change="topicSelected" v-model="selectedTopic">
+                <option disabled value="">select a topic...</option>
+                <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
+            </select>
+        </div>
+
+        <div class="revisionSelectedWrapper">
+            <button type="button" v-on:click="selectedTopic=0">Return To Topic Selector</button>
+            <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
+        </div>
+
     </div>
-  </div>
 </template>
 
 <script>
