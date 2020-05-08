@@ -1,12 +1,12 @@
 <template lang="html">
   <body id="app">
-    <section class="header">
+    <div class="pageHeader">
       <page-header />
-    </section>
+    </div>
     <div class="body">
       <revision v-if="viewSelector === 1" />
       <quiz v-if="viewSelector === 2" />
-      <stats v-if="viewSelector === 3" />0
+      <stats v-if="viewSelector === 3" />
     </div>
 </body>
 </template>
@@ -47,12 +47,32 @@ export default {
 
 <style lang="css" scoped>
 #app{
-    background-color:coral;
+    width:100%;
+    height:700px;
+    display:flex;
+    flex-direction:column;
+    box-sizing:border-box;
+
+
+    padding:0px;
+    margin:0px;
+
+    border-style:solid;
+    border-radius:40px;
+    border-width:thin;
+    background-image: linear-gradient(-45deg,red, yellow);
+    background-repeat:no-repeat;
+
+
+}
+.pageHeader{
+
+}
+.body{
+    width:100%;
 }
 div{
     border-style:solid;
-    border-radius:20px;
-    margin:5px;
-    padding:5px;
+    border-width:thin;
 }
 </style>
