@@ -46,4 +46,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+body{
+    background-color:grey;
+}
+div{
+    border-style:solid;
+    border-radius:20px;
+    margin:5px;
+    padding:5px;
+}
 </style>
