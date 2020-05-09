@@ -1,18 +1,30 @@
 <template lang="html">
-  <div class="">
-    <h2>Revise</h2>
-    <label for="revision">Select a Topic: </label>
-    <select id="revision" v-on:change="topicSelected" v-model="selectedTopic">
-      <option disabled value="">select a topic...</option>
-      <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
-    </select>
-    <revision-detail v-if="selectedTopic" :selectedTopic="selectedTopic" />
-  </div>
+
+    <div class="revisionWrapper">
+
+        <div class="revisionSelector" v-if="!selectedTopic">
+            <div class="revisionHeading">
+                Care To study something new?
+            </div>
+            <div>
+                <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
+                <select class="selectorTxt" name="revision" v-on:change="topicSelected" v-model="selectedTopic">
+                    <option disabled value="">select a topic...</option>
+                    <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="revisionSelectedWrapper"v-if="selectedTopic" >
+            <revision-detail :selectedTopic="selectedTopic" @nullTopic="nullTopic"/>
+        </div>
+
+    </div>
 </template>
 
 <script>
 import {eventBus} from '@/main.js';
-import RevisionService from '@/services/RevisionService.js';
+import TopicsService from '@/services/TopicsService.js';
 import RevisionDetail from '@/components/RevisionDetail.vue';
 
 export default {
@@ -30,14 +42,49 @@ export default {
   methods: {
     topicSelected() {
       eventBus.$emit('topic-selected', this.selectedTopic)
+    },
+    nullTopic(nullNum){
+        this.selectedTopic=nullNum
     }
   },
   mounted() {
-    RevisionService.getTopics()
+    TopicsService.getTopics()
     .then(topics => this.topics = topics)
   }
 }
 </script>
 
 <style lang="css" scoped>
+.revisionWrapper{
+    width:100%;
+    height:500px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.revisionHeading{
+    font-family:nunito;
+    text-align:center;
+    font-weight:600;
+    font-size:30px;
+    background-color:white;
+    border-radius:35px;
+    padding:10px;
+    margin:20px;
+    box-shadow: 10px 10px 5px black;
+}
+.revisionSelectedWrapper{
+    width:100%;
+    height:500px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.selectorTxt{
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    text-align:center;
+}
+
 </style>
