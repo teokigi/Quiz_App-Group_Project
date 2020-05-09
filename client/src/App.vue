@@ -4,9 +4,11 @@
       <page-header />
     </div>
     <div class="body">
+      <home v-if="viewSelector === 0" />
       <revision v-if="viewSelector === 1" />
       <test-page v-if="viewSelector === 2" />
       <stats v-if="viewSelector === 3" />
+      <sign-up v-if="viewSelector === 4" />
     </div>
 </body>
 </template>
@@ -18,6 +20,9 @@ import TestPage from '@/components/TestPage.vue';
 import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
 import UsersService from '@/services/UsersService.js';
+import HomePage from '@/components/HomePage.vue';
+import SignUpForm from '@/components/SignUpForm';
+import SignInForm from '@/components/SignInForm';
 
 export default {
   name: 'app',
@@ -25,15 +30,21 @@ export default {
     'page-header': PageHeader,
     'test-page': TestPage,
     'revision': Revision,
-    'stats': Stats
+    'stats': Stats,
+    'home': HomePage,
+    'sign-up': SignUpForm
   },
   data() {
     return {
       viewSelector: 0,
-      users: []
+      users: [],
+      loginStatus: 0
     }
   },
   mounted() {
+    eventBus.$on('sign-in-up', (navNumber) => {
+      this.viewSelector = navNumber
+    }),
     eventBus.$on('selected-nav-revision', (navNumber) => {
       this.viewSelector = navNumber
     }),
@@ -43,7 +54,11 @@ export default {
     eventBus.$on('selected-nav-stats', (navNumber) => {
       this.viewSelector = navNumber
     }),
-    eventBus.$on('user-login', (payload) => {
+    eventBus.$on('sign-out', (navNumber) => {
+      this.viewSelector =  navNumber
+      this.loginStatus = navNumber
+    }),
+    eventBus.$on('new-user', (payload) => {
       UsersService.postUser(payload)
       .then(user => this.users.push(user))
     })

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <question-list-item v-for="question of questionsInTopic" :question="question" />
+    <question-list-item v-for="question of selectedQuestions" :question="question" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import QuestionListItem from '@/components/QuestionListItem.vue';
 
 export default {
   name: 'question-list',
-  props: ['questionsInTopic'],
+  props: ['selectedQuestions'],
   components: {
     'question-list-item': QuestionListItem
   }

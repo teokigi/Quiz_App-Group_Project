@@ -4,5 +4,10 @@ export default {
   getTopics() {
     return fetch(baseURL)
     .then(res => res.json())
+  },
+
+  getTopic(id) {
+    return fetch(baseURL + id)
+    .then(res => res.json())
   }
 }
