@@ -78,6 +78,7 @@ flex-direction:column;
 align-self:center;
 }
 .body{
+    padding:45px;
     width:100%;
     height:100%;
     align-self:center;
