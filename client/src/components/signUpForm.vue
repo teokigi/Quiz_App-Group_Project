@@ -27,11 +27,9 @@ export default {
     }
   },
   mounted() {
-    eventBus.$on('new-user', (payload) => {
-      UsersService.postUser()
-      .this.newUser = payload
-    })
-
+    onSubmit() {
+      eventBus.$emit('new-user', (payload))
+    }
   }
 }
 </script>

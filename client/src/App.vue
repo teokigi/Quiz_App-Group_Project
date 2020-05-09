@@ -8,6 +8,7 @@
       <revision v-if="viewSelector === 1" />
       <test-page v-if="viewSelector === 2" />
       <stats v-if="viewSelector === 3" />
+      <sign-up v-if="viewSelector === 4" />
     </div>
 </body>
 </template>
@@ -20,6 +21,8 @@ import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
 import UsersService from '@/services/UsersService.js';
 import HomePage from '@/components/HomePage.vue';
+import SignUpForm from '@/components/SignUpForm';
+import SignInForm from '@/components/SignInForm';
 
 export default {
   name: 'app',
@@ -28,7 +31,8 @@ export default {
     'test-page': TestPage,
     'revision': Revision,
     'stats': Stats,
-    'home': HomePage
+    'home': HomePage,
+    'sign-up': SignUpForm
   },
   data() {
     return {
@@ -38,6 +42,9 @@ export default {
     }
   },
   mounted() {
+    eventBus.$on('sign-in-up', (navNumber) => {
+      this.viewSelector = navNumber
+    }),
     eventBus.$on('selected-nav-revision', (navNumber) => {
       this.viewSelector = navNumber
     }),
@@ -51,7 +58,7 @@ export default {
       this.viewSelector =  navNumber
       this.loginStatus = navNumber
     }),
-    eventBus.$on('user-login', (payload) => {
+    eventBus.$on('new-user', (payload) => {
       UsersService.postUser(payload)
       .then(user => this.users.push(user))
     })

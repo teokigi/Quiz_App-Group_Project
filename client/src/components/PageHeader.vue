@@ -31,6 +31,9 @@ export default {
     },
     onClickSignOut() {
       eventBus.$emit('sign-out', 0)
+    },
+    onClickSignInUp() {
+      eventBus.$emit('sign-in-up', 4)
     }
   }
 }
