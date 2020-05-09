@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div>
-      <h3>Create an Account?</h3>
+      <h3>Create a New Account?</h3>
       <form id="new-user-form" v-on:submit.prevent="onSubmit()">
         <label for="nickname-field">Nickname: </label>
         <input required type="text" id="nickname-field" v-model="newUser">
