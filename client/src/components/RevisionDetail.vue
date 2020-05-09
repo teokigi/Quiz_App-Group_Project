@@ -54,7 +54,7 @@ export default {
 
     font-family:nunito;
     font-weight:600;
-    font-size:30px;
+    font-size:28px;
     letter-spacing:3px;
 
     border-radius:30px;
@@ -75,7 +75,7 @@ export default {
 }
 iframe{
     width:100%;
-    height:70vh;
+    height:65vh;
 }
 .vidFrame{
     box-shadow: 10px 10px 16px black;

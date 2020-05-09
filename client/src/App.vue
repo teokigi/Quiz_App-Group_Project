@@ -56,6 +56,7 @@ export default {
     cursor:url("https://img.icons8.com/ultraviolet/40/000000/ball-point-pen.png") 3 40,pointer;
     width:100%;
     min-width:750px;
+    min-height:750px;
     height:100vh;
     display:flex;
     flex-direction:column;
