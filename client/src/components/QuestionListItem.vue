@@ -14,13 +14,13 @@ export default {
   },
   methods: {
     getQuestion() {
-      console.log(this.question.questions[0].question)
       return this.question.questions[0].question
-    },
+    }
+  },
+  mounted() {
     eventBus.$on('user-login', (payload) => {
       TopicsService.getTopic(payload.selectedTopic)
       .then(result => this.questions.push(result))
-      // TODO: Add code to get questions into questions Data Return!
     })
   }
 }

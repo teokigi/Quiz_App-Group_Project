@@ -4,6 +4,7 @@
       <page-header />
     </div>
     <div class="body">
+      <home v-if="viewSelector === 0" />
       <revision v-if="viewSelector === 1" />
       <test-page v-if="viewSelector === 2" />
       <stats v-if="viewSelector === 3" />
@@ -18,6 +19,7 @@ import TestPage from '@/components/TestPage.vue';
 import Revision from '@/components/Revision.vue';
 import Stats from '@/components/Stats.vue';
 import UsersService from '@/services/UsersService.js';
+import HomePage from '@/components/HomePage.vue';
 
 export default {
   name: 'app',
@@ -25,12 +27,14 @@ export default {
     'page-header': PageHeader,
     'test-page': TestPage,
     'revision': Revision,
-    'stats': Stats
+    'stats': Stats,
+    'home': HomePage
   },
   data() {
     return {
       viewSelector: 0,
-      users: []
+      users: [],
+      loginStatus: 0
     }
   },
   mounted() {
@@ -42,6 +46,10 @@ export default {
     }),
     eventBus.$on('selected-nav-stats', (navNumber) => {
       this.viewSelector = navNumber
+    }),
+    eventBus.$on('sign-out', (navNumber) => {
+      this.viewSelector =  navNumber
+      this.loginStatus = navNumber
     }),
     eventBus.$on('user-login', (payload) => {
       UsersService.postUser(payload)

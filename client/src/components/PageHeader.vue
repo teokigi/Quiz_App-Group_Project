@@ -4,10 +4,12 @@
     <h1>Exam Buddy</h1>
     </div>
     <div class="nav-links-group">
+      <span class="nav-links" v-on:click="onClickSignInUp">  Sign In/Up </span>
       <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
       <span class="nav-links" v-on:click="onClickTest"> Test </span>
       <span class="nav-links" v-on:click="onClickStats">  Stats </span>
     </div>
+    <button v-if="loginStatus" type="button" name="sign-out" v-on:click="onClickSignOut">Sign Out</button>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import {eventBus} from '@/main.js';
 
 export default {
   name: 'page-header',
+  props: ['loginStatus'],
   methods: {
     onClickTest() {
       eventBus.$emit('selected-nav-test', 2)
@@ -25,6 +28,9 @@ export default {
     },
     onClickRevision() {
       eventBus.$emit('selected-nav-revision', 1)
+    },
+    onClickSignOut() {
+      eventBus.$emit('sign-out', 0)
     }
   }
 }
