@@ -53,6 +53,7 @@ export default {
 
 <style lang="css" scoped>
 #app{
+    cursor:url("https://img.icons8.com/ultraviolet/40/000000/ball-point-pen.png") 3 40,pointer;
     width:100%;
     height:900px;
     display:flex;
