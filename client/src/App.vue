@@ -83,7 +83,8 @@ align-self:center;
     align-self:center;
     background-image:url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80);
     background-repeat:no-repeat;
-    background-blend-mode:soft-light;;
+    background-blend-mode:soft-light;
+    opacity:1;
 }
 
 </style>
