@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="detailVid">
-    <iframe class="vidFrame":src="selectedTopic.youtubeURL" width="680" height="420" />
+    <iframe class="vidFrame":src="selectedTopic.youtubeURL" width="960" height="540" />
     </div>
   </div>
 </template>
@@ -59,6 +59,7 @@ export default {
 }
 .detailVid{
     margin-left:50px;
+    padding:5px;
 }
 .vidFrame{
     box-shadow: 10px 10px 16px black;

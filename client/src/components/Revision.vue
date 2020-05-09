@@ -86,6 +86,8 @@ export default {
 }
 .returnButton{
     margin:10px;
+    align-self:flex-end;
+    margin-right:100px;
     font-family:nunito;
     font-weight:600;
     font-size:20px;
