@@ -16,8 +16,7 @@
         </div>
 
         <div class="revisionSelectedWrapper"v-if="selectedTopic" >
-            <revision-detail :selectedTopic="selectedTopic" />
-            <button class="returnButton" type="button" v-on:click="selectedTopic= null" >Return To Topic Selector</button>
+            <revision-detail :selectedTopic="selectedTopic" @nullTopic="nullTopic"/>
         </div>
 
     </div>
@@ -43,6 +42,9 @@ export default {
   methods: {
     topicSelected() {
       eventBus.$emit('topic-selected', this.selectedTopic)
+    },
+    nullTopic(nullNum){
+        this.selectedTopic=nullNum
     }
   },
   mounted() {
@@ -84,16 +86,5 @@ export default {
     font-size:20px;
     text-align:center;
 }
-.returnButton{
-    margin:10px;
-    align-self:flex-end;
-    margin-right:100px;
-    font-family:nunito;
-    font-weight:600;
-    font-size:20px;
-    text-align:center;
-    border-radius:10px;
-    background-color:lightblue;
-    box-shadow:5px 5px 10px black;
-}
+
 </style>

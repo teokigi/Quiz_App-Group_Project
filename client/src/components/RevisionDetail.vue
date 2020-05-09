@@ -9,32 +9,42 @@
         </div>
     </div>
     <div class="detailVid">
-    <iframe class="vidFrame":src="selectedTopic.youtubeURL" width="960" height="540" />
+    <video :src="selectedTopic.youtubeURL" controls/>
+    <button class="returnButton" type="button" v-on:click="revDetButtonHandle" >Return To Topic Selector</button>
     </div>
   </div>
 </template>
 
 <script>
 import Revision from '@/components/Revision.vue';
+import {eventBus} from '@/main.js';
 
 export default {
   name: 'revision-detail',
-  props: ['selectedTopic']
+  props: ['selectedTopic'],
+  methods:{
+      revDetButtonHandle(){
+      this.$emit('nullTopic', 0)
+  }
+  }
 
 }
 </script>
 
 <style lang="css" scoped>
 .selectedRevisionWrapper{
-    width:90%;
+    width:100%;
+    height:100%;
     margin:10px;
     display:flex;
     flex-direction:row;
     justify-content:space-around;
 }
 .detailTxt{
+    padding:20px;
     text-align:center;
-    width:50%;
+    width:30%;
+    height:100%;
 }
 .detailTxtHeading{
     background-color:black;
@@ -58,14 +68,31 @@ export default {
 
 }
 .detailVid{
-    margin-left:50px;
-    padding:5px;
+    width:100%;
+    height:100%;
+    padding:20px;
 }
 .vidFrame{
     box-shadow: 10px 10px 16px black;
 }
 .selected-topic{
     width:100%;
+}
+.returnButton{
+    margin:10px;
+    align-self:flex-end;
+    margin-right:100px;
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    text-align:center;
+    border-radius:10px;
+    background-color:lightblue;
+    box-shadow:5px 5px 10px black;
+}
+video{
+     width:100% ;
+     height: auto;
 
 }
 </style>
