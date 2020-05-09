@@ -56,7 +56,6 @@ export default {
 
 }
 .site-name{
-    letter-spacing:60px;
     font-family:'nunito';
     font-weight:800;
     font-size:70px;
