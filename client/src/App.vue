@@ -61,8 +61,9 @@ export default {
 
 <style lang="css" scoped>
 #app{
+    cursor:url("https://img.icons8.com/ultraviolet/40/000000/ball-point-pen.png") 3 40,pointer;
     width:100%;
-    height:800px;
+    height:900px;
     display:flex;
     flex-direction:column;
     box-sizing:border-box;
@@ -72,7 +73,6 @@ export default {
     margin:0px;
 
     border-style:solid;
-    border-radius:40px;
     border-width:thin;
     background-image: linear-gradient(-45deg,red, yellow);
     background-repeat:no-repeat;
@@ -80,13 +80,18 @@ export default {
 
 }
 .pageHeader{
-
+width:100%;
+display:flex;
+flex-direction:column;
+align-self:center;
 }
 .body{
     width:100%;
+    height:100%;
+    align-self:center;
+    background-image:url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80);
+    background-repeat:no-repeat;
+    background-blend-mode:soft-light;;
 }
-div{
-    border-style:solid;
-    border-width:thin;
-}
+
 </style>
