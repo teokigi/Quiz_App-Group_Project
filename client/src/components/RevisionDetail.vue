@@ -43,7 +43,7 @@ export default {
 .detailTxt{
     padding:20px;
     text-align:center;
-    width:30%;
+    width:300px;
     height:100%;
 }
 .detailTxtHeading{
@@ -54,7 +54,7 @@ export default {
 
     font-family:nunito;
     font-weight:600;
-    font-size:40px;
+    font-size:30px;
     letter-spacing:3px;
 
     border-radius:30px;

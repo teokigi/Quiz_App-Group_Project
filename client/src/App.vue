@@ -55,10 +55,12 @@ export default {
 #app{
     cursor:url("https://img.icons8.com/ultraviolet/40/000000/ball-point-pen.png") 3 40,pointer;
     width:100%;
+    min-width:750px;
     height:100vh;
     display:flex;
     flex-direction:column;
     box-sizing:border-box;
+    overflow-x:hidden;
 
 
     padding:0px;
