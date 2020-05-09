@@ -50,11 +50,20 @@ export default {
       loginPassword: null
     }
   },
-  mounted() {
+  methods: {
     onLogin() {
+      const payload = {
+        loginEmailAddress: this.loginEmailAddress,
+        loginPassword: this.loginPassword
+      }
       eventBus.$emit('user-login', payload)
     },
     onSubmit() {
+      const payload = {
+        newUser: this.newUser,
+        newEmailAddress: this.loginEmailAddress,
+        newPassword: this.loginPassword
+      }
       eventBus.$emit('new-user', (payload))
     }
   }
