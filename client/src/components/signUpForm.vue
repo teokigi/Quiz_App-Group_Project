@@ -1,32 +1,59 @@
 <template lang="html">
   <div>
-    <form id="username-form" v-on:submit.prevent="onSubmit()">
-      <label for="nickname-field">Nickname: </label>
-      <input required type="text" id="nickname-field" v-model="user">
-      <br>
-      <label for="emailAddress-field">Email Address: </label>
-      <input required type="email" id="emailAddress-field" v-model="emailAddress">
-      <br>
-      <label for="password-field">Password: </label>
-      <input required type="password" v-model="password">
-      <br>
-      <button type="submit"> Continue </button>
-    </form>
+    <div>
+      <h3>Create an Account?</h3>
+      <form id="new-user-form" v-on:submit.prevent="onSubmit()">
+        <label for="nickname-field">Nickname: </label>
+        <input required type="text" id="nickname-field" v-model="newUser">
+        <br>
+        <label for="emailAddress-field">Email Address: </label>
+        <input required type="email" id="emailAddress-field" v-model="newEmailAddress">
+        <br>
+        <label for="password-field">Password: </label>
+        <input required type="password" v-model="newPassword">
+        <br>
+        <button type="submit"> Create Account </button>
+      </form>
+    </div>
+
+    <div>
+      <h3>Login Here</h3>
+      <form id="login-form" v-on:submit.prevent="onLogin()">
+        <label for="emailAddress-login">Email Address: </label>
+        <input required type="email" id="emailAddress-login" v-model="loginEmailAddress">
+        <br>
+        <label for="password-login">Password: </label>
+        <input required type="password" v-model="loginPassword">
+        <br>
+        <button type="submit"> Login </button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import {eventBus} from '@/main.js';
+import SignInForm from '@/components/SignInForm.vue';
+
 export default {
   name: 'sign-up-form',
+  components: {
+    'sign-in-form': SignInForm
+  },
   data() {
     return {
-      user: null,
-      emailAddress: null,
-      password: null,
-      listView: false
+      newUser: null,
+      newEmailAddress: null,
+      newPassword: null,
+      listView: false,
+      loginEmailAddress: null,
+      loginPassword: null
     }
   },
   mounted() {
+    onLogin() {
+      eventBus.$emit('user-login', payload)
+    },
     onSubmit() {
       eventBus.$emit('new-user', (payload))
     }
