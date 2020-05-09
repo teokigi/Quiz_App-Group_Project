@@ -37,7 +37,7 @@ export default {
     width:50%;
 }
 .detailTxtHeading{
-    background-image:linear-gradient(-15deg,lightblue,coral,lightblue);
+    background-color:black;
     color:white;
     text-shadow:0px 0px 4px black;
     margin-top:10px;
