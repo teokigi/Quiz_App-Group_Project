@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="detailVid">
-    <video :src="selectedTopic.youtubeURL" controls/>
+    <iframe :src="selectedTopic.youtubeURL" allowfullscreen/>
     <button class="returnButton" type="button" v-on:click="revDetButtonHandle" >Return To Topic Selector</button>
     </div>
   </div>
@@ -71,6 +71,10 @@ export default {
     width:100%;
     height:100%;
     padding:20px;
+}
+iframe{
+    width:100%;
+    height:100%;
 }
 .vidFrame{
     box-shadow: 10px 10px 16px black;
