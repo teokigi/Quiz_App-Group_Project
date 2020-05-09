@@ -71,10 +71,11 @@ export default {
     width:100%;
     height:100%;
     padding:20px;
+    text-align:right;
 }
 iframe{
     width:100%;
-    height:100%;
+    height:70vh;
 }
 .vidFrame{
     box-shadow: 10px 10px 16px black;
@@ -84,15 +85,12 @@ iframe{
 }
 .returnButton{
     margin:10px;
-    align-self:flex-end;
-    margin-right:100px;
     font-family:nunito;
     font-weight:600;
     font-size:20px;
-    text-align:center;
     border-radius:10px;
     background-color:lightblue;
-    box-shadow:5px 5px 10px black;
+    box-shadow:8px 8px 2px black;
 }
 video{
      width:100% ;
