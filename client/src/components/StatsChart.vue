@@ -14,7 +14,7 @@ import Stats from '@/components/Stats.vue';
 
 export default {
   name: 'stats-chart',
-  props: ['selectedPlaceholder']
+  props: ['stats']
 
 }
 </script>
