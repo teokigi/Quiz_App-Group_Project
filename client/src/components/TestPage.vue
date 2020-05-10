@@ -19,7 +19,7 @@
       </select>
     </div>
 
-    <question-list v-if="selectedTopic" :selectedQuestions="selectedTopic.questions" :selectedUser="selectedUser"/>
+    <question-list v-if="selectedTopic" :topic="selectedTopic" :user="selectedUser"/>
 
   </div>
 </template>

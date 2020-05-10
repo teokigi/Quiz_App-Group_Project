@@ -51,6 +51,12 @@ export default {
     UsersService.getUsers()
     .then(users => this.users = users)
 
+    eventBus.$on('update-answer', (user) => {
+      const payload = {
+      answerSet: user.answerSet
+      }
+      UsersService.updateUser(user._id, payload)})
+
     eventBus.$on('sign-in-up', (navNumber) => {
       this.viewSelector = navNumber
     }),
