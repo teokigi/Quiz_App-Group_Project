@@ -10,7 +10,7 @@
         </div>
       <button type="submit">Submit Answers</button>
     </form>
-    <div v-if="completedTest">
+    <div v-if="completedTest" class="formWrapper">
       Here are your results
       <div class="question" v-for="(question, qindex) of this.topic.questions">
           Q{{qindex+1}}. {{question.question}}<br>
@@ -65,7 +65,7 @@ export default {
 }
 .question{
     margin:10px;
-    padding:5px;
+    padding:10px;
     text-align:left;
     width:40%;
     border-style:solid;
