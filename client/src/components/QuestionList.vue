@@ -3,55 +3,51 @@
     <form v-on:submit.prevent="handleSubmit()" class="formWrapper" v-if="!completedTest">
       <div class="firstQuestion">
           {{topic.questions[0].question}}<br>
-          <input id="answer1" type="radio" name="drone1" :value="topic.questions[0].answers[0]" v-model="answers[0]">
-          <label for="answer1">{{topic.questions[0].answers[0]}}</label><br>
-          <input id="answer2" type="radio" name="drone1" :value="topic.questions[0].answers[1]" v-model="answers[0]">
-          <label for="answer2">{{topic.questions[0].answers[1]}}</label><br>
-          <input id="answer3" type="radio" name="drone1" :value="topic.questions[0].answers[2]" v-model="answers[0]">
-          <label for="answer3">{{topic.questions[0].answers[2]}}</label><br>
-          <input id="answer4" type="radio" name="drone1" :value="topic.questions[0].answers[3]" v-model="answers[0]">
-          <label for="answer4">{{topic.questions[0].answers[3]}}</label><br>
+          <label  v-for="answer of this.topic.questions[0].answers" >
+              <input type="radio" name="drone1" v-model="answers[0]" v-bind:value="answer">
+              {{answer}}<br>
+          </label>
       </div>
       <br>
       <div class="secondQuestion">
           {{topic.questions[1].question}}<br>
-          <input id="answer1" type="radio" name="drone2" :value="topic.questions[1].answers[0]" v-model="answers[1]">
+          <input type="radio" name="drone2" :value="topic.questions[1].answers[0]" v-model="answers[1]">
           <label for="answer1">{{topic.questions[1].answers[0]}}</label><br>
-          <input id="answer2" type="radio" name="drone2" :value="topic.questions[1].answers[1]" v-model="answers[1]">
+          <input type="radio" name="drone2" :value="topic.questions[1].answers[1]" v-model="answers[1]">
           <label for="answer2">{{topic.questions[1].answers[1]}}</label><br>
-          <input id="answer3" type="radio" name="drone2" :value="topic.questions[1].answers[2]" v-model="answers[1]">
+          <input type="radio" name="drone2" :value="topic.questions[1].answers[2]" v-model="answers[1]">
           <label for="answer3">{{topic.questions[1].answers[2]}}</label><br>
-          <input id="answer4" type="radio" name="drone2" :value="topic.questions[1].answers[3]" v-model="answers[1]">
+          <input type="radio" name="drone2" :value="topic.questions[1].answers[3]" v-model="answers[1]">
           <label for="answer4">{{topic.questions[1].answers[3]}}</label><br>
       </div>
       <br>
       <div class="thirdQuestion">
           {{topic.questions[2].question}}<br>
-          <input id="answer1" type="radio" name="drone3" :value="topic.questions[2].answers[0]" v-model="answers[2]">
+          <input type="radio" name="drone3" :value="topic.questions[2].answers[0]" v-model="answers[2]">
           <label for="answer1">{{topic.questions[2].answers[0]}}</label><br>
-          <input id="answer2" type="radio" name="drone3" :value="topic.questions[2].answers[1]" v-model="answers[2]">
+          <input type="radio" name="drone3" :value="topic.questions[2].answers[1]" v-model="answers[2]">
           <label for="answer2">{{topic.questions[2].answers[1]}}</label><br>
-          <input id="answer3" type="radio" name="drone3" :value="topic.questions[2].answers[2]" v-model="answers[2]">
+          <input type="radio" name="drone3" :value="topic.questions[2].answers[2]" v-model="answers[2]">
           <label for="answer3">{{topic.questions[2].answers[2]}}</label><br>
-          <input id="answer4" type="radio" name="drone3" :value="topic.questions[2].answers[3]" v-model="answers[2]">
+          <input type="radio" name="drone3" :value="topic.questions[2].answers[3]" v-model="answers[2]">
           <label for="answer4">{{topic.questions[2].answers[3]}}</label><br>
       </div>
       <br>
       <div class="fourthQuestion">
           {{topic.questions[3].question}}<br>
-          <input id="answer1" type="radio" name="drone4" :value="topic.questions[3].answers[0]" v-model="answers[3]">
+          <input type="radio" name="drone4" :value="topic.questions[3].answers[0]" v-model="answers[3]">
           <label for="answer1">{{topic.questions[3].answers[0]}}</label><br>
-          <input id="answer2" type="radio" name="drone4" :value="topic.questions[3].answers[1]" v-model="answers[3]">
+          <input type="radio" name="drone4" :value="topic.questions[3].answers[1]" v-model="answers[3]">
           <label for="answer2">{{topic.questions[3].answers[1]}}</label><br>
-          <input id="answer3" type="radio" name="drone4" :value="topic.questions[3].answers[2]" v-model="answers[3]">
+          <input type="radio" name="drone4" :value="topic.questions[3].answers[2]" v-model="answers[3]">
           <label for="answer3">{{topic.questions[3].answers[2]}}</label><br>
-          <input id="answer4" type="radio" name="drone4" :value="topic.questions[3].answers[3]" v-model="answers[3]">
+          <input type="radio" name="drone4" :value="topic.questions[3].answers[3]" v-model="answers[3]">
           <label for="answer4">{{topic.questions[3].answers[3]}}</label><br>
       </div>
       <br>
       <div class="fifthQuestion">
           {{topic.questions[4].question}}<br>
-          <input id="answer1" type="radio" name="drone5" :value="topic.questions[4].answers[0]" v-model="answers[4]">
+          <input type="radio" name="drone5" :value="topic.questions[4].answers[0]" v-model="answers[4]">
           <label for="answer1">{{topic.questions[4].answers[0]}}</label><br>
           <input id="answer2" type="radio" name="drone5" :value="topic.questions[4].answers[1]" v-model="answers[4]">
           <label for="answer2">{{topic.questions[4].answers[1]}}</label><br>
