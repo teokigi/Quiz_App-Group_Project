@@ -6,7 +6,7 @@
     <div class="body">
       <home v-if="viewSelector === 0" />
       <revision :topics="topics" v-if="viewSelector === 1" />
-      <test-page :topics="topics" v-if="viewSelector === 2" />
+      <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
       <stats v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
@@ -47,6 +47,9 @@ export default {
   mounted() {
     TopicsService.getTopics()
     .then(topics => this.topics = topics)
+
+    UsersService.getUsers()
+    .then(users => this.users = users)
 
     eventBus.$on('sign-in-up', (navNumber) => {
       this.viewSelector = navNumber

@@ -15,7 +15,12 @@ MongoClient.connect('mongodb://localhost:27017')
     const db = client.db('education_hub');
     const questionsCollection = db.collection('education');
     const questionsRouter = createRouter(questionsCollection);
+
+    const usersCollection = db.collection('users');
+    const usersRouter = createRouter(usersCollection);
+
     app.use('/api/questions', questionsRouter);
+    app.use('/api/users', usersRouter);
   })
   .catch(console.err);
 

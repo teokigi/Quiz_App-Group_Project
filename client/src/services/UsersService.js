@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api/questions/';
+const baseURL = 'http://localhost:3000/api/users/';
 
 export default {
   getUsers() {

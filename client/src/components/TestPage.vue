@@ -1,16 +1,25 @@
 <template lang="html">
   <div class="">
 
-    <h2>Start a Test</h2>
-    <label for="revision">Select a Test Topic: </label>
 
-    <select id="revision"v-if="!selectedTopic" v-model="selectedTopic">
-      <option disabled value="">select a topic...</option>
-      <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
-    </select>
+    <div v-if="!selectedUser">
+      <h2>Start a Test</h2>
+      <label for="revision">Select a User: </label>
+      <select id="revision" v-model="selectedUser">
+        <option disabled value="">select a user</option>
+        <option v-for="user of users" :value="user">{{user.nickname}}</option>
+      </select>
+    </div>
+    <div v-if="selectedUser&&!selectedTopic">
+      <h2>Start a Test</h2>
+      <label for="revision">Select a Test Topic: </label>
+      <select id="revision"v-model="selectedTopic">
+        <option disabled value="">select a topic...</option>
+        <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
+      </select>
+    </div>
 
-    <hr>
-    <question-list v-if="selectedTopic" :selectedQuestions="selectedTopic.questions" />
+    <question-list v-if="selectedTopic" :selectedQuestions="selectedTopic.questions" :selectedUser="selectedUser"/>
 
   </div>
 </template>
@@ -21,10 +30,11 @@ import QuestionList from '@/components/QuestionList.vue';
 
 export default {
   name: 'test-page',
-  props: ['topics'],
+  props: ['topics', 'users'],
   data() {
     return {
-      selectedTopic: null,      
+      selectedTopic: null,
+      selectedUser: null,
     }
   },
   components: {

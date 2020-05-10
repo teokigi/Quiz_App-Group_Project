@@ -1,29 +1,75 @@
 use education_hub;
 db.dropDatabase();
 
+
 db.users.insertMany([
   {
     "nickname": "Tangtastic_T-Dawg",
     "emailAddress": "tdawg@hotmail.com",
     "password": "tonylovestotest",
-    "correctAnswers": 24,
-    "wrongAnswers": 8
+    "answerSet":[
+                  {
+                    "category": "Biology: The Ecosystem",
+                    "correctAnswers": 9,
+                    "incorrectAnswers": 14
+                  },
+                  {
+                    "category": "Language: Japanese",
+                    "correctAnswers": 22,
+                    "incorrectAnswers": 16
+                  },
+                  {
+                    "category": "Classical Studies: The Odyssey",
+                    "correctAnswers": 29,
+                    "incorrectAnswers": 15
+                  }
+                ]
   },
   {
     "nickname": "Krizzy-Pears",
     "emailAddress": "cpears@gmail.com",
     "password": "pears2me",
-    "correctAnswers": 31,
-    "wrongAnswers": 11
+    "answerSet":[
+                  {
+                    "category": "Biology: The Ecosystem",
+                    "correctAnswers": 31,
+                    "incorrectAnswers": 21
+                  },
+                  {
+                    "category": "Language: Japanese",
+                    "correctAnswers": 59,
+                    "incorrectAnswers": 21
+                  },
+                  {
+                    "category": "Classical Studies: The Odyssey",
+                    "correctAnswers": 45,
+                    "incorrectAnswers": 14
+                  }
+                ]
   },
   {
     "nickname": "BlueWales89",
     "emailAddress": "mwales@outlook.com",
     "password": "bigwales123",
-    "correctAnswers": 16,
-    "wrongAnswers": 28
+    "answerSet":[
+                  {
+                    "category": "Biology: The Ecosystem",
+                    "correctAnswers": 12,
+                    "incorrectAnswers": 42
+                  },
+                  {
+                    "category": "Language: Japanese",
+                    "correctAnswers": 32,
+                    "incorrectAnswers": 11
+                  },
+                  {
+                    "category": "Classical Studies: The Odyssey",
+                    "correctAnswers": 25,
+                    "incorrectAnswers": 8
+                  }
+                ]
   }
-]),
+]);
 
 db.education.insertMany([
   {
