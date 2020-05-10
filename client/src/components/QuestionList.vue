@@ -3,7 +3,7 @@
     <form v-on:submit.prevent="handleSubmit()" class="formWrapper" v-if="!completedTest">
         <div class="question" v-for="(question, qindex) of this.topic.questions">
             Q{{qindex+1}}. {{question.question}}<br>
-            <label v-for="(answer, aindex) of question.answers">
+            <label v-for="(answer, aindex) of question.answers" class="answerLabel">
                 <input type="radio" :name="'drone'+ qindex" v-model="answers[qindex]" v-bind:value="answer" required>
                 {{answer}}<br>
             </label>
@@ -58,6 +58,22 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.formWrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.question{
+    margin:10px;
+    padding:5px;
+    text-align:left;
+    width:40%;
+    border-style:solid;
+    border-radius:30px;
+    background-color:lightblue;
+    opacity:0.75;
+}
+
 button {
     margin:10px;
     font-family:nunito;
@@ -66,6 +82,9 @@ button {
     border-radius:10px;
     background-color:lightblue;
     box-shadow:8px 8px 2px black;
+}
+.answerLabel:hover{
+    color:blue;
 }
 .correct{
     background-color:lightgreen;
