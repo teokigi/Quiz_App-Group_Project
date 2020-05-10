@@ -8,7 +8,7 @@
             </div>
             <div>
                 <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
-                <select class="selectorTxt" name="revision" v-on:change="topicSelected" v-model="selectedTopic">
+                <select class="selectorTxt" name="revision" v-model="selectedTopic">
                     <option disabled value="">select a topic...</option>
                     <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
                 </select>
@@ -23,34 +23,25 @@
 </template>
 
 <script>
-import {eventBus} from '@/main.js';
-import TopicsService from '@/services/TopicsService.js';
+
 import RevisionDetail from '@/components/RevisionDetail.vue';
 
 export default {
   name: 'revision',
-  props: ['categories'],
+  props: ['topics'],
   data() {
     return {
-      selectedTopic: null,
-      topics: []
+      selectedTopic: null
     }
   },
   components: {
     'revision-detail': RevisionDetail
   },
   methods: {
-    topicSelected() {
-      eventBus.$emit('topic-selected', this.selectedTopic)
-    },
     nullTopic(nullNum){
         this.selectedTopic=nullNum
     }
   },
-  mounted() {
-    TopicsService.getTopics()
-    .then(topics => this.topics = topics)
-  }
 }
 </script>
 

@@ -2,6 +2,7 @@
   <div class="statsWrapper">
   <div class="site-name">
     Test Complete!
+    <stats-chart />
   </div>
 </div>
 </template>
@@ -9,11 +10,10 @@
 
 <script>
 import {eventBus} from '@/main.js';
-import QuestionService from '@/services/QuestionsSservice.js';
+import StatsChart from '@/components/StatsChart.vue'
 
 export default {
-  score: [],
-  props: ['questions'],
+  props: ['stats'],
     data() {
       return {
       selected: null
@@ -26,10 +26,6 @@ export default {
     statsSelected() {
       eventBus.$emit('stats-selected', this.selectedStats)
     }
-  },
-  mounted() {
-    StatsService.getStats()
-    .then(stats => this.stats = stats)
   }
 }
 </script>
