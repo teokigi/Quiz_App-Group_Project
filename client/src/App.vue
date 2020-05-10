@@ -92,7 +92,6 @@ export default {
     flex-direction:column;
     box-sizing:border-box;
 
-
     padding:0px;
     margin:0px;
 
@@ -101,6 +100,9 @@ export default {
     background-image: linear-gradient(-45deg,red, yellow);
     background-repeat:no-repeat;
 
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
 
 }
 .pageHeader{
