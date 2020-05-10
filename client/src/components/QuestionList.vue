@@ -1,47 +1,14 @@
 <template lang="html">
   <div>
     <form v-on:submit.prevent="handleSubmit()" class="formWrapper" v-if="!completedTest">
-      <div class="firstQuestion">
-          {{topic.questions[0].question}}<br>
-          <label v-for="answer of this.topic.questions[0].answers" >
-              <input type="radio" name="drone0" v-model="answers[0]" v-bind:value="answer">
-              {{answer}}<br>
-          </label>
-      </div>
-      <br>
-      <div class="secondQuestion">
-          {{topic.questions[1].question}}<br>
-          <label v-for="answer of this.topic.questions[1].answers" >
-              <input type="radio" name="drone1" v-model="answers[1]" v-bind:value="answer">
-              {{answer}}<br>
-          </label>
-      </div>
-      <br>
-      <div class="thirdQuestion">
-          {{topic.questions[2].question}}<br>
-          <label  v-for="answer of this.topic.questions[2].answers" >
-              <input type="radio" name="drone2" v-model="answers[2]" v-bind:value="answer">
-              {{answer}}<br>
-          </label>
-      </div>
-      <br>
-      <div class="fourthQuestion">
-          {{topic.questions[3].question}}<br>
-          <label  v-for="answer of this.topic.questions[3].answers" >
-              <input type="radio" name="drone3" v-model="answers[3]" v-bind:value="answer">
-              {{answer}}<br>
-          </label>
-      </div>
-      <br>
-      <div class="fifthQuestion">
-          {{topic.questions[4].question}}<br>
-          <label  v-for="answer of this.topic.questions[4].answers" >
-              <input type="radio" name="drone4" v-model="answers[4]" v-bind:value="answer">
-              {{answer}}<br>
-          </label>
-      </div>
-      <br>
-      <input type="submit">
+        <div class="DRY" v-for="(question, qindex) of this.topic.questions">
+            {{question.question}}<br>
+            <label v-for="(answer, aindex) of question.answers">
+                <input type="radio" :name="'drone'+ qindex" v-model="answers[qindex]" v-bind:value="answer">
+                {{answer}}<br>
+            </label>
+        </div>
+      <button type="submit">Submit Answers</button>
     </form>
     <div v-if="completedTest">
       You've completed the test!
@@ -62,7 +29,7 @@ export default {
   data(){
     return {
       answers: [],
-      completedTest: null
+      completedTest: null,
     }
   },
   methods:{
@@ -86,4 +53,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+button {
+    margin:10px;
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    border-radius:10px;
+    background-color:lightblue;
+    box-shadow:8px 8px 2px black;
+}
+
+
 </style>

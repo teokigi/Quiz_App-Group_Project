@@ -122,5 +122,4 @@ export default {
     background-repeat:no-repeat;
     background-blend-mode:soft-light;
     }
-
 </style>
