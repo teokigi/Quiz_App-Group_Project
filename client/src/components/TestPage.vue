@@ -19,7 +19,7 @@
       </select>
     </div>
 
-    <question-list v-if="selectedTopic" :topic="selectedTopic" :user="selectedUser"/>
+    <question-list v-if="selectedTopic" :topic="selectedTopic" :user="selectedUser" @resetValues="resetValues"/>
 
   </div>
 </template>
@@ -39,7 +39,12 @@ export default {
   },
   components: {
     'question-list': QuestionList
-  }
+    },
+    methods:{
+        resetValues(resVal){
+            this.selectedUser = this.selectedTopic = resVal;
+        }
+    }
 }
 </script>
 

@@ -17,6 +17,8 @@
           Correct Answer: {{question.correct_answer}}<br>
           Your Answer: <span :class="question.correct_answer === answers[qindex] ? 'correct':'incorrect'">{{answers[qindex]}}</span>
       </div>
+      <br>
+      <button type="button" v-on:click="resetHandle"> Take another test!! </button>
     </div>
   </div>
 </template>
@@ -39,19 +41,23 @@ export default {
   },
   methods:{
     handleSubmit(){
-      const index = this.user.answerSet.findIndex(result => result.category === this.topic.category)
-      for (let question of this.topic.questions){
-        for(let answer of this.answers){
-          if(question.correct_answer === answer){
-            this.user.answerSet[index].correctAnswers ++;
-            eventBus.$emit('update-answer', this.user)
-          }else{
-            this.user.answerSet[index].incorrectAnswers ++;
-            eventBus.$emit('update-answer', this.user)
-          };
+        const index = this.user.answerSet.findIndex(result => result.category === this.topic.category)
+        for (let question of this.topic.questions){
+            for(let answer of this.answers){
+                if(question.correct_answer === answer){
+                    this.user.answerSet[index].correctAnswers ++;
+                    eventBus.$emit('update-answer', this.user)
+                }else{
+                    this.user.answerSet[index].incorrectAnswers ++;
+                    eventBus.$emit('update-answer', this.user)
+                };
+            }
         }
-      }
-      this.completedTest= 1
+        this.completedTest= 1
+    },
+    resetHandle(){
+      this.answers= [];
+      this.$emit('resetValues', 0)
     }
   }
 }
