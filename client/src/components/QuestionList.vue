@@ -1,17 +1,22 @@
 <template lang="html">
   <div>
     <form v-on:submit.prevent="handleSubmit()" class="formWrapper" v-if="!completedTest">
-        <div class="DRY" v-for="(question, qindex) of this.topic.questions">
-            {{question.question}}<br>
+        <div class="question" v-for="(question, qindex) of this.topic.questions">
+            Q{{qindex+1}}. {{question.question}}<br>
             <label v-for="(answer, aindex) of question.answers">
-                <input type="radio" :name="'drone'+ qindex" v-model="answers[qindex]" v-bind:value="answer">
+                <input type="radio" :name="'drone'+ qindex" v-model="answers[qindex]" v-bind:value="answer" required>
                 {{answer}}<br>
             </label>
         </div>
       <button type="submit">Submit Answers</button>
     </form>
     <div v-if="completedTest">
-      You've completed the test!
+      Here are your results
+      <div class="question" v-for="(question, qindex) of this.topic.questions">
+          Q{{qindex+1}}. {{question.question}}<br>
+          Correct Answer: {{question.correct_answer}}<br>
+          Your Answer: <span :class="question.correct_answer === answers[qindex] ? 'correct':'incorrect'">{{answers[qindex]}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -62,6 +67,11 @@ button {
     background-color:lightblue;
     box-shadow:8px 8px 2px black;
 }
-
+.correct{
+    background-color:lightgreen;
+}
+.incorrect{
+    background-color:coral;
+}
 
 </style>
