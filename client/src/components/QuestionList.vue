@@ -61,7 +61,7 @@
           <label for="answer4">{{topic.questions[4].answers[3]}}</label><br>
       </div>
       <br>
-      <input type="submit"></input>
+      <input type="submit">
     </form>
     <div v-if="completedTest">
       You've completed the test!
