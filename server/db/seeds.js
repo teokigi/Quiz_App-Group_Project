@@ -33,42 +33,27 @@ db.education.insertMany([
                   {
                     "question":"What element in an Ecosystem is know as a Primary Producer?",
                     "correct_answer": "Plants",
-                    "answer1":"Insects",
-                    "answer2":"Mammals",
-                    "answer3":"Atmosphere",
-                    "answer4":"Plants"
+                    "answers": ["Insects","Mammals","Atmosphere","Plants"]
                   },
                   {
                     "question":"Which of these would be known as a Consumer?",
                     "correct_answer": "Wolf",
-                    "answer1":"Dung Beetle",
-                    "answer2":"Wolf",
-                    "answer3":"Giraffe",
-                    "answer4":"All of These"
+                    "answers": ["Dung Beetle", "Wolf", "Giraffe", "All of These"]
                   },
                   {
                     "question":"What is the primary method of Consumers to return nutrients to the Primary Producers?",
                     "correct_answer": "Death",
-                    "answer1":"Eating",
-                    "answer2":"Excretion",
-                    "answer3":"Death",
-                    "answer4":"Breathing"
+                    "answers": ["Eating","Excretion","Death","Breathing"]
                   },
                   {
                     "question":"What makes an Ecosystem stable?",
                     "correct_answer": "Diversity",
-                    "answer1":"Biotic Bias",
-                    "answer2":"Diversity",
-                    "answer3":"Abiotic Bias",
-                    "answer4":"Simplicity"
+                    "answers": ["Biotic Bias", "Diversity", "Abiotic Bias", "Simplicity"]
                   },
                   {
                     "question":"How old are some Coral Reefs?",
                     "correct_answer": "500 Million Years",
-                    "answer1":"50 Million Years",
-                    "answer2":"5 Million Years",
-                    "answer3":"500 Million Years",
-                    "answer4":"500,000 Years"
+                    "answers": ["50 Million Years","5 Million Years","500 Million Years","500,000 Years"]
                   }
                 ]
   },
@@ -79,42 +64,28 @@ db.education.insertMany([
                   {
                     "question":"How do you say, I understand?",
                     "correct_answer": "わかりました",
-                    "answer1":"わかりません",
-                    "answer2":"わかりました",
-                    "answer3":"わたしわ",
-                    "answer4":"わがまま"
+                    "answers": ["わかりません", "わかりました", "わたしわ", "わがまま"]
                   },
                   {
                     "question":"How do you say, Thank you?",
                     "correct_answer": "ありがとう",
-                    "answer1":"ありがとう",
-                    "answer2":"あたこと",
-                    "answer3":"あさです",
-                    "answer4":"あした"
+                    "answers": ["ありがとう","あたこと","あさです","あした"]
+
                   },
                   {
                     "question":"How do you say, Good Morning",
                     "correct_answer":"おはよう",
-                    "answer1":"おねがい",
-                    "answer2":"おんぶ",
-                    "answer3":"おっさん",
-                    "answer4":"おはよう"
+                    "answers": ["おねがい", "おんぶ", "おっさん", "おはよう"]
                   },
                   {
                     "question":"How do you say, yes?",
                     "correct_answer":"はい",
-                    "answer1":"はな",
-                    "answer2":"はい",
-                    "answer3":"はは",
-                    "answer4":"はなび"
+                    "answers": ["はな", "はい", "はは", "はなび"]
                   },
                   {
                     "question":"How do you say, no?",
                     "correct_answer":"いええ",
-                    "answer1":"いえない",
-                    "answer2":"いただきます",
-                    "answer3":"いええ",
-                    "answer4":"いよ"
+                    "answers": ["いえない", "いただきます", "いええ", "いよ"]
                   }
                 ]
   },
@@ -125,42 +96,27 @@ db.education.insertMany([
                   {
                     "question":"In which century was the Odyssey and Iliad  written?",
                     "correct_answer": "8th",
-                    "answer1":"7th",
-                    "answer2":"9th",
-                    "answer3":"10th",
-                    "answer4":"8th"
+                    "answers": ["7th", "9th", "10th", "8th"]
                   },
                   {
                     "question":"What is the name of the cyclops in the Odyssey?",
                     "correct_answer": "Polyphemus",
-                    "answer1":"Polyphemus",
-                    "answer2":"Scylla",
-                    "answer3":"Charibdis",
-                    "answer4":"The Lotus Eater"
+                    "answers": ["Polyphemus", "Scylla", "Charibdis", "The Lotus Eater"]
                   },
                   {
                     "question":"How does Odysseus get revenge on the cyclops for eating his men?",
                     "correct_answer": "Blinds him",
-                    "answer1":"Cuts off his feet",
-                    "answer2":"Cuts out his tongue",
-                    "answer3":"Blinds him",
-                    "answer4":"Cuts off his hands"
+                    "answers": ["Cuts off his feet", "Cuts out his tongue", "Blinds him", "Cuts off his hands"]
                   },
                   {
                     "question":"What name did Odysseus give when he met the cyclops?",
                     "correct_answer": "Noman",
-                    "answer1":"Norman",
-                    "answer2":"Odysseus",
-                    "answer3":"Odie",
-                    "answer4":"Noman"
+                    "answers": ["Norman", "Odysseus", "Odie", "Noman"]
                   },
                   {
                     "question":"At the start of the Odyssey, which Nymph has imprisoned Odysseus on the Isle of Ogygia?",
                     "correct_answer": "Calypsso",
-                    "answer1":"Thetis",
-                    "answer2":"Calypsso",
-                    "answer3":"Aegina",
-                    "answer4":"Noman"
+                    "answers": ["Thetis", "Calypsso", "Aegina", "Noman"]
                   }
                 ]
   }
