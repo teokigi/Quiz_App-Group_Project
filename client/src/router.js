@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-vue.use(Router)
+Vue.use(Router)
 
 const router = new Router({
     mode:'history',
@@ -14,7 +14,7 @@ const router = new Router({
 
         {
             path: '/about',
-            name: 'about'.
+            name: 'about',
             component: About,
             props: true
         }

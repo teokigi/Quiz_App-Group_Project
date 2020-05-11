@@ -10,6 +10,8 @@
       <stats :users="users" v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
+
+    <router-view id="view" />
 </body>
 </template>
 
