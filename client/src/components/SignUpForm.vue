@@ -33,13 +33,9 @@
 
 <script>
 import {eventBus} from '@/main.js';
-import SignInForm from '@/components/SignInForm.vue';
 
 export default {
   name: 'sign-up-form',
-  components: {
-    'sign-in-form': SignInForm
-  },
   data() {
     return {
       newUser: null,
