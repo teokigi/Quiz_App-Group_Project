@@ -19,12 +19,12 @@
       </div>
       <br>
       <button type="button" v-on:click="resetHandle"> Take another test!! </button>
+
     </div>
   </div>
 </template>
 
 <script>
-import {eventBus} from '@/main.js';
 
 export default {
   name: 'question-list',
@@ -42,18 +42,18 @@ export default {
             for(let answer of this.answers){
                 if(question.correct_answer === answer){
                     this.user.answerSet[index].correctAnswers ++;
-                    eventBus.$emit('update-answer', this.user)
+                    this.$emit('updateAnswer', this.user)
                 }else{
                     this.user.answerSet[index].incorrectAnswers ++;
-                    eventBus.$emit('update-answer', this.user)
+                    this.$emit('updateAnswer', this.user)
                 };
             }
         }
         this.completedTest= 1
     },
     resetHandle(){
-      this.answers= [];
-      this.$emit('resetValues', 0)
+       this.answers= [];
+       this.$emit('resetValues', 0)
     }
   }
 }

@@ -1,25 +1,25 @@
 <template lang="html">
-  <div>
-    <div>
-      <h3>Create a New Account?</h3>
+  <div class="loginWrapper">
+    <div class="form">
+      <h3>New User</h3>
       <form id="new-user-form" v-on:submit.prevent="onSubmit()">
         <label for="nickname-field">Nickname: </label>
         <input required type="text" id="nickname-field" v-model="newUser">
         <br>
-        <label for="emailAddress-field">Email Address: </label>
+        <label for="emailAddress-field">E-mail Address: </label>
         <input required type="email" id="emailAddress-field" v-model="newEmailAddress">
         <br>
         <label for="password-field">Password: </label>
         <input required type="password" v-model="newPassword">
         <br>
-        <button type="submit"> Create Account </button>
+        <button type="submit"> Sign-up</button>
       </form>
     </div>
 
-    <div>
-      <h3>Login Here</h3>
+    <div class="form">
+      <h3>Login In</h3>
       <form id="login-form" v-on:submit.prevent="onLogin()">
-        <label for="emailAddress-login">Email Address: </label>
+        <label for="emailAddress-login">E-mail address : </label>
         <input required type="email" id="emailAddress-login" v-model="loginEmailAddress">
         <br>
         <label for="password-login">Password: </label>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {eventBus} from '@/main.js';
+import UsersService from '@/services/UsersService.js';
 
 export default {
   name: 'login-form',
@@ -52,7 +52,7 @@ export default {
         loginEmailAddress: this.loginEmailAddress,
         loginPassword: this.loginPassword
       }
-      eventBus.$emit('user-login', payload)
+      UsersService.verify(payload)
     },
     onSubmit() {
       const payload = {
@@ -71,11 +71,37 @@ export default {
             incorrectAnswers:0}
           ]
         }
-      eventBus.$emit('new-user', (payload))
+      UsersService.postUser(payload)
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
+h3{
+    text-align:center;
+}
+.form{
+    padding:10px;
+    border-style:solid;
+    border-radius:20px;
+    text-align:right;
+}
+.loginWrapper{
+    width:60%;
+    align-self:center;
+    padding:30px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+button {
+    margin:5px;
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    border-radius:10px;
+    background-color:lightblue;
+    box-shadow:8px 8px 2px black;
+}
 </style>
