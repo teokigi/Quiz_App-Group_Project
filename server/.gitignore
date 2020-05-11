@@ -1,5 +1,7 @@
 node_modules/
 
+keys.js
+
 # local env files
 .env.local
 .env.*.local

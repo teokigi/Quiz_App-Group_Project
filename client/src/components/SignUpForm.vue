@@ -16,7 +16,14 @@
       </form>
     </div>
 
-    <div>
+    <div id="app">
+      <router-link to="/" tag="button" id='home-button'> Home </router-link>
+        <button v-if='authenticated' v-on:click='logout' id='logout-button'> Logout </button>
+        <button v-else v-on:click='login' id='login-button'> Login </button>
+      <router-view/>
+    </div>
+
+    <!-- <div>
       <h3>Login Here</h3>
       <form id="login-form" v-on:submit.prevent="onLogin()">
         <label for="emailAddress-login">Email Address: </label>
@@ -27,7 +34,7 @@
         <br>
         <button type="submit"> Login </button>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -43,10 +50,29 @@ export default {
       newPassword: null,
       listView: false,
       loginEmailAddress: null,
-      loginPassword: null
+      loginPassword: null,
+      authenticated: false
     }
   },
+  created() {
+    this.isAuthenticated()
+  },
+  watch: {
+    '$route': 'isAuthenticated'
+  },
   methods: {
+    async isAuthenticated() {
+      this.authenticated = await this.$auth.isAuthenticated()
+    },
+    login() {
+      this.$auth.loginRedirect('/')
+    },
+    async logout() {
+      await this.$auth.logout()
+      await this.isAuthenticated()
+
+      this.$router.push({path: '/'})
+    },
     onLogin() {
       const payload = {
         loginEmailAddress: this.loginEmailAddress,
