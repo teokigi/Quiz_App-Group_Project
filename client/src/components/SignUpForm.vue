@@ -33,13 +33,9 @@
 
 <script>
 import {eventBus} from '@/main.js';
-import SignInForm from '@/components/SignInForm.vue';
 
 export default {
   name: 'sign-up-form',
-  components: {
-    'sign-in-form': SignInForm
-  },
   data() {
     return {
       newUser: null,
@@ -60,10 +56,21 @@ export default {
     },
     onSubmit() {
       const payload = {
-        newUser: this.newUser,
-        newEmailAddress: this.loginEmailAddress,
-        newPassword: this.loginPassword
-      }
+        nickname: this.newUser,
+        emailAddress: this.newEmailAddress,
+        password: this.newPassword,
+        answerSet:[
+            {category:"Biology: The Ecosystem",
+            correctAnswers:0,
+            incorrectAnswers:0},
+            {category:"Language: Japanese",
+            correctAnswers:0,
+            incorrectAnswers:0},
+            {category:"Classical Studies: The Odyssey",
+            correctAnswers:0,
+            incorrectAnswers:0}
+          ]
+        }
       eventBus.$emit('new-user', (payload))
     }
   }
