@@ -1,7 +1,6 @@
 <template>
     <div id="">
         <page-header title='About' />
-        <p>{{message}}</p>
     </div>
 </template>
 <script>

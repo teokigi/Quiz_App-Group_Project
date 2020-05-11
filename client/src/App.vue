@@ -1,8 +1,12 @@
 <template lang="html">
   <body id="app">
-    <div class="pageHeader">
-      <page-header />
-    </div>
+      <nav>
+          <router-link :to="{ name: 'home'}">Home</router-link>
+        <router-link :to="{ name: 'about'}">About</router-link>
+      </nav>
+      
+    <router-view id="view" />
+
     <div class="body">
       <home v-if="viewSelector === 0" />
       <revision :topics="topics" v-if="viewSelector === 1" />
@@ -11,7 +15,7 @@
       <sign-up v-if="viewSelector === 4" />
     </div>
 
-    <router-view id="view" />
+
 </body>
 </template>
 
