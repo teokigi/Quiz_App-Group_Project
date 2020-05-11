@@ -7,7 +7,7 @@
       <home v-if="viewSelector === 0" />
       <revision :topics="topics" v-if="viewSelector === 1" />
       <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats v-if="viewSelector === 3" />
+      <stats :users="users" v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
 </body>

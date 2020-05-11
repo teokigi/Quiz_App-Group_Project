@@ -1,30 +1,30 @@
 <template lang="html">
   <div class="statsWrapper">
-  <div class="site-name">
-    Test Complete!
-    <stats-chart />
+
+    <div v-if="!selectedUser">
+      <label for="revision">Select a User: </label>
+      <select id="revision" v-model="selectedUser">
+        <option disabled value="">select a user</option>
+        <option v-for="user of users" :value="user">{{user.nickname}}</option>
+      </select>
+    </div>
+    <stats-chart v-if="selectedUser" :user="selectedUser" />
   </div>
-</div>
 </template>
 
 
 <script>
-import {eventBus} from '@/main.js';
-import StatsChart from '@/components/StatsChart.vue'
+import StatsChart from '@/components/StatsChart.vue';
 
 export default {
-  props: ['stats'],
-    data() {
-      return {
-      selected: null
-    }
-  },
+  name: 'stats',
+  props: ['users'],
   components: {
     'stats-chart': StatsChart
   },
-  methods: {
-    statsSelected() {
-      eventBus.$emit('stats-selected', this.selectedStats)
+  data() {
+    return {
+      selectedUser: null
     }
   }
 }
