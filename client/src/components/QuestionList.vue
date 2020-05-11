@@ -24,15 +24,11 @@
 </template>
 
 <script>
-import QuestionListItem from '@/components/QuestionListItem.vue';
 import {eventBus} from '@/main.js';
 
 export default {
   name: 'question-list',
   props: ['topic', 'user'],
-  components: {
-    'question-list-item': QuestionListItem
-  },
   data(){
     return {
       answers: [],
