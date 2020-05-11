@@ -1,14 +1,14 @@
 <template>
   <div id="">
-    <main-header title='Home' />
+    <page-header title='Home' />
   </div>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader';
+import PageHeader from '@/components/PageHeader';
 
 export default {
   components: {
-    'main-header': MainHeader
+    'page-header': PageHeader
   }
 }
 </script>

@@ -1,16 +1,16 @@
 <template>
     <div id="">
-        <main-header title='About' />
+        <page-header title='About' />
         <p>{{message}}</p>
     </div>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader';
+import PageHeader from '@/components/PageHeader';
 
 export default {
     props: ['message'],
   components: {
-    'main-header': MainHeader
+    'page-header': PageHeader
   }
 }
 </script>
