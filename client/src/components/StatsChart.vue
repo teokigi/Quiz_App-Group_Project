@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import Stats from '@/components/Stats.vue';
 
 export default {
   name: 'stats-chart',

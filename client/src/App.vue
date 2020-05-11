@@ -1,89 +1,45 @@
 <template lang="html">
   <body id="app">
+      <page-header/>
       <nav>
-          <router-link :to="{ name: 'home'}">Home</router-link>
-        <router-link :to="{ name: 'about'}">About</router-link>
+          <div class="nav-links-group">
+              <router-link  class="nav-links"  :to="{ name: 'login'}">Login</router-link>
+              <router-link  class="nav-links"  :to="{name: 'study'}">Study</router-link>
+              <router-link  class="nav-links"  :to="{ name: 'test'}">Test</router-link>
+              <router-link  class="nav-links"  :to="{ name: 'statistics'}">Statistics</router-link>
+          </div>
       </nav>
-      
-    <router-view id="view" />
-
-    <div class="body">
-      <home v-if="viewSelector === 0" />
-      <revision :topics="topics" v-if="viewSelector === 1" />
-      <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats :users="users" v-if="viewSelector === 3" />
-      <sign-up v-if="viewSelector === 4" />
-    </div>
-
-
-</body>
+      <router-view id="view" />
+  </body>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue';
-import TestPage from '@/components/TestPage.vue';
-import Revision from '@/components/Revision.vue';
-import Stats from '@/components/Stats.vue';
-import HomePage from '@/components/HomePage.vue';
-import SignUpForm from '@/components/SignUpForm';
-
-import UsersService from '@/services/UsersService.js';
-import TopicsService from '@/services/TopicsService.js';
 
 import {eventBus} from '@/main.js';
 
 export default {
-  name: 'app',
-  components: {
-    'page-header': PageHeader,
-    'test-page': TestPage,
-    'revision': Revision,
-    'stats': Stats,
-    'home': HomePage,
-    'sign-up': SignUpForm
-  },
-  data() {
-    return {
-      viewSelector: 0,
-      users: [],
-      loginStatus: 0,
-      topics: null
+    name: 'app',
+    data() {
+        return {
+            loginStatus: 0,
+        }
+    },
+    components: {
+        'page-header': PageHeader,
+    },
+    mounted() {
+        eventBus.$on('update-answer', (user) => {
+            const payload = {
+                answerSet: user.answerSet
+            }
+            UsersService.updateUser(user._id, payload)
+        }),
+        eventBus.$on('new-user', (payload) => {
+            UsersService.postUser(payload)
+            .then(user => this.users.push(user))
+        })
     }
-  },
-  mounted() {
-    TopicsService.getTopics()
-    .then(topics => this.topics = topics)
-
-    UsersService.getUsers()
-    .then(users => this.users = users)
-
-    eventBus.$on('update-answer', (user) => {
-      const payload = {
-      answerSet: user.answerSet
-      }
-      UsersService.updateUser(user._id, payload)})
-
-    eventBus.$on('sign-in-up', (navNumber) => {
-      this.viewSelector = navNumber
-    }),
-    eventBus.$on('selected-nav-revision', (navNumber) => {
-      this.viewSelector = navNumber
-    }),
-    eventBus.$on('selected-nav-test', (navNumber) => {
-      this.viewSelector = navNumber
-    }),
-    eventBus.$on('selected-nav-stats', (navNumber) => {
-      this.viewSelector = navNumber
-    }),
-    eventBus.$on('sign-out', (navNumber) => {
-      this.viewSelector =  navNumber
-      this.loginStatus = navNumber
-    }),
-    eventBus.$on('new-user', (payload) => {
-      UsersService.postUser(payload)
-      .then(user => this.users.push(user))
-    })
-  }
 }
 </script>
 
@@ -117,6 +73,30 @@ export default {
     display:flex;
     flex-direction:column;
     align-self:center;
+}
+.nav-links-group{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    background-color:black;
+}
+.nav-links{
+    width:30%;
+    text-decoration:none;
+    border-style:solid;
+    color:white;
+    font-family:'nunito';
+    font-weight:400;
+    font-size:25px;
+    padding:5px;
+    text-shadow:3px 3px 4px red;
+}
+.nav-links:hover{
+    border-radius:30px;
+    background-color:lightblue;
+    color:black;
+
 }
 .body{
     width:100%;

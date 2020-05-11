@@ -1,6 +1,6 @@
 <template>
     <div id="">
-        <page-header title='About' />
+        about page
     </div>
 </template>
 <script>

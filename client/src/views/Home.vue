@@ -1,6 +1,6 @@
 <template>
   <div id="">
-    <page-header title='Home' />
+    <h3>Welcome! Make a Selection Above!</h3>
   </div>
 </template>
 <script>
