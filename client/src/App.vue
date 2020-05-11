@@ -7,7 +7,7 @@
       <home v-if="viewSelector === 0" />
       <revision :topics="topics" v-if="viewSelector === 1" />
       <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats v-if="viewSelector === 3" />
+      <stats :users="users" v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
 </body>
@@ -92,7 +92,6 @@ export default {
     flex-direction:column;
     box-sizing:border-box;
 
-
     padding:0px;
     margin:0px;
 
@@ -101,6 +100,10 @@ export default {
     background-image: linear-gradient(-45deg,red, yellow);
     background-repeat:no-repeat;
 
+    font-family:nunito;
+    font-weight:600;
+    font-size:20px;
+    text-align:center;
 
 }
 .pageHeader{
@@ -119,5 +122,4 @@ export default {
     background-repeat:no-repeat;
     background-blend-mode:soft-light;
     }
-
 </style>
