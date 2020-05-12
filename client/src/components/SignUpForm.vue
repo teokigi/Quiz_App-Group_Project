@@ -124,6 +124,7 @@ button {
   padding:10px;
   margin:20px;
   box-shadow: 10px 10px 5px black;
+  opacity: 0.9;
 }
 
 .login-user-form {
@@ -138,6 +139,7 @@ button {
   padding:10px;
   margin:20px;
   box-shadow: 10px 10px 5px black;
+  opacity: 0.9;
 }
 
 .boxes {
