@@ -4,12 +4,13 @@
       Exam Buddy
     </div>
     <div class="nav-links-group">
-      <span class="nav-links" v-on:click="onClickSignInUp">  Sign In/Up </span>
-      <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
-      <span class="nav-links" v-on:click="onClickTest"> Test </span>
-      <span class="nav-links" v-on:click="onClickStats">  Stats </span>
+      <span class="nav-links" v-if="!authenticated" v-on:click="onClickSignInUp">  Sign In/Up </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickRevision"> Revise </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickTest"> Test </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickStats">  Stats </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickSignOut"> Sign Out </span>
     </div>
-    <button v-if="loginStatus" type="button" name="sign-out" v-on:click="onClickSignOut">Sign Out</button>
+
   </div>
 </template>
 
@@ -18,7 +19,7 @@ import {eventBus} from '@/main.js';
 
 export default {
   name: 'page-header',
-  props: ['loginStatus'],
+  props: ['authenticated'],
   methods: {
     onClickTest() {
       eventBus.$emit('selected-nav-test', 2)
@@ -52,7 +53,7 @@ export default {
     background-color:black;
     color:white;
     padding:5px;
-    text-shadow: 0px 0px 4px red, 2px 2px 8px white;
+    /* text-shadow: 0px 0px 4px red, 2px 2px 8px white; */
 
 }
 .site-name{

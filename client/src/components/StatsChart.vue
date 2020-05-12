@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="selectedStatsWrapper">
 
-    <highcharts :options="chartOptions"></highcharts>
+    <highcharts class="chart-style" :options="chartOptions"></highcharts>
 
   </div>
 </template>
@@ -11,7 +11,7 @@ import Stats from '@/components/Stats.vue';
 
 export default {
   name: 'stats-chart',
-  props: ['user'],
+  props: ['currentUser'],
   data() {
     return {
       chartOptions: {
@@ -19,7 +19,11 @@ export default {
           type: 'column'
         },
         title: {
-          text: this.user.nickname + "'s Stats"
+          style: {
+            fontFamily: 'nunito',
+            fontSize: 30
+          },
+          text: this.currentUser.nickname + "'s Stats"
         },
         yAxis: {
           title: {
@@ -27,24 +31,24 @@ export default {
           }
         },
         xAxis: {
-          categories:[this.user.answerSet[0].category,this.user.answerSet[1].category,this.user.answerSet[2].category]
+          categories:[this.currentUser.answerSet[0].category,this.currentUser.answerSet[1].category,this.currentUser.answerSet[2].category]
         },
         series: [
           {
             name:'Correct',
             data:[
-              {name:this.user.answerSet[0].category,y:this.user.answerSet[0].correctAnswers},
-              {name:this.user.answerSet[1].category,y:this.user.answerSet[1].correctAnswers},
-              {name:this.user.answerSet[2].category,y:this.user.answerSet[2].correctAnswers}
+              {name:this.currentUser.answerSet[0].category,y:this.currentUser.answerSet[0].correctAnswers},
+              {name:this.currentUser.answerSet[1].category,y:this.currentUser.answerSet[1].correctAnswers},
+              {name:this.currentUser.answerSet[2].category,y:this.currentUser.answerSet[2].correctAnswers}
             ],
             color:'#5ca230'
           },
           {
             name:'Incorrect',
             data:[
-              {name:this.user.answerSet[0].category,y:this.user.answerSet[0].incorrectAnswers},
-              {name:this.user.answerSet[1].category,y:this.user.answerSet[1].incorrectAnswers},
-              {name:this.user.answerSet[2].category,y:this.user.answerSet[2].incorrectAnswers},
+              {name:this.currentUser.answerSet[0].category,y:this.currentUser.answerSet[0].incorrectAnswers},
+              {name:this.currentUser.answerSet[1].category,y:this.currentUser.answerSet[1].incorrectAnswers},
+              {name:this.currentUser.answerSet[2].category,y:this.currentUser.answerSet[2].incorrectAnswers},
             ],
             color:'#f18a1a'
           }
@@ -57,7 +61,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 .selectedStatsWrapper{
     margin:30px;
 }
+
 </style>

@@ -4,10 +4,13 @@
 
         <div class="revisionSelector" v-if="!selectedTopic">
             <div class="revisionHeading">
-                Care To study something new?
+                Care To study something new {{currentUser.nickname}}?
             </div>
+            <br>
+            <br>
+            <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
+
             <div>
-                <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
                 <select class="selectorTxt" name="revision" v-model="selectedTopic">
                     <option disabled value="">select a topic...</option>
                     <option v-for="topic of topics" :value="topic">{{topic.category}}</option>
@@ -28,7 +31,7 @@ import RevisionDetail from '@/components/RevisionDetail.vue';
 
 export default {
   name: 'revision',
-  props: ['topics'],
+  props: ['topics', 'currentUser', 'authenticated'],
   data() {
     return {
       selectedTopic: null

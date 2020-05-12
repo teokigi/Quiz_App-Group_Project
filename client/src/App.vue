@@ -1,14 +1,17 @@
 <template lang="html">
   <body id="app">
     <div class="pageHeader">
-      <page-header />
+      <page-header :authenticated="authenticated" />
     </div>
     <div class="body">
       <home v-if="viewSelector === 0" />
-      <revision :topics="topics" v-if="viewSelector === 1" />
-      <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats :users="users" v-if="viewSelector === 3" />
-      <sign-up v-if="viewSelector === 4" />
+      <revision :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
+      <test-page :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
+      <stats :currentUser="currentUser" v-if="viewSelector === 3" />
+      <sign-up :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 4" />
+      <div v-if="failMsg">
+        {{failMsg}}
+      </div>
     </div>
 </body>
 </template>
@@ -41,15 +44,15 @@ export default {
       viewSelector: 0,
       users: [],
       loginStatus: 0,
-      topics: null
+      topics: null,
+      authenticated: false,
+      currentUser: {},
+      failMsg: ""
     }
   },
   mounted() {
     TopicsService.getTopics()
     .then(topics => this.topics = topics)
-
-    UsersService.getUsers()
-    .then(users => this.users = users)
 
     eventBus.$on('update-answer', (user) => {
       const payload = {
@@ -71,11 +74,29 @@ export default {
     }),
     eventBus.$on('sign-out', (navNumber) => {
       this.viewSelector =  navNumber
-      this.loginStatus = navNumber
+      this.authenticated = false;
+      this.currentUser = {};
     }),
     eventBus.$on('new-user', (payload) => {
+      const updatedPayload = {
+        nickname: payload.nickname,
+        answerSet: payload.answerSet
+      }
       UsersService.postUser(payload)
-      .then(user => this.users.push(user))
+      this.currentUser = updatedPayload
+      this.authenticated = true
+    }),
+    eventBus.$on('user-login', (payload) => {
+      UsersService.credVerifier(payload)
+      .then(user => {
+        if (typeof user === 'object') {
+          this.currentUser = user
+          this.authenticated = true
+          this.failMsg = ""
+        }else if (typeof user === 'string'){
+        this.failMsg = "Incorrect email or password!"
+        }
+      })
     })
   }
 }
