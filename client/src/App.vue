@@ -22,14 +22,14 @@ export default {
     name: 'app',
     data() {
         return {
-            loginStatus: 0,
+            loggedUser: null
         }
     },
     components: {
         'page-header': PageHeader,
     },
     mounted() {
-        
+
         eventBus.$on('new-user', (payload) => {
             UsersService.postUser(payload)
             .then(user => this.users.push(user))

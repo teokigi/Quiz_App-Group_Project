@@ -55,6 +55,12 @@ const createRouter = function (collection) {
 
   });
 
+  // router.get('/verify', (req,res) =>{
+  //     const emailAddress = req.params.emailAddress;
+  //     const password = req.params.emailAddress;
+  //     collection.
+  // })
+
   return router;
 
 };
