@@ -29,6 +29,18 @@ const createRouter = function (collection) {
       });
   });
 
+  router.get('/email/:email',(req,res)=>{
+      const email = req.params.email;
+      collection
+      .findOne({emailAddress:email})
+      .then((doc) => res.json(doc))
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, err: err });
+      });
+  })
+
   router.post('/', (req, res) => {
     const newData = req.body;
     collection

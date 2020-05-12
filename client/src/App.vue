@@ -9,7 +9,7 @@
               <router-link  class="nav-links"  :to="{ name: 'statistics'}">Statistics</router-link>
           </div>
       </nav>
-      <router-view id="view" />
+      <router-view id="view" class="body"/>
   </body>
 </template>
 
