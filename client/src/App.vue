@@ -1,14 +1,14 @@
 <template lang="html">
   <body id="app">
     <div class="pageHeader">
-      <page-header />
+      <page-header :authenticated="authenticated" />
     </div>
     <div class="body">
       <home v-if="viewSelector === 0" />
-      <revision :topics="topics" v-if="viewSelector === 1" />
-      <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats :users="users" v-if="viewSelector === 3" />
-      <sign-up v-if="viewSelector === 4" />
+      <revision :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
+      <test-page :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
+      <stats :currentUser="currentUser" v-if="viewSelector === 3" />
+      <sign-up :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 4" />
     </div>
 </body>
 </template>
@@ -41,7 +41,9 @@ export default {
       viewSelector: 0,
       users: [],
       loginStatus: 0,
-      topics: null
+      topics: null,
+      authenticated: false,
+      currentUser: {}
     }
   },
   mounted() {
@@ -71,12 +73,33 @@ export default {
     }),
     eventBus.$on('sign-out', (navNumber) => {
       this.viewSelector =  navNumber
-      this.loginStatus = navNumber
+      this.authenticated = false;
+      this.currentUser = {};
     }),
     eventBus.$on('new-user', (payload) => {
       UsersService.postUser(payload)
       .then(user => this.users.push(user))
-    })
+    }),
+    eventBus.$on('user-login', (payload) => {
+      const userSearch = this.users.find(el => el.emailAddress === payload.emailAddress && el.password === payload.password)
+      if (userSearch) {
+        this.authenticated = true;
+        this.currentUser = userSearch;
+      }else{
+        this.authenticated = false;
+        this.currentUser = {};
+      }
+    }),
+    eventBus.$on('auto-login', (autoLoginPayload) => {
+      const userSearch = this.users.find(el => el.emailAddress === autoLoginPayload.emailAddress && el.password === autoLoginPayload.password)
+      if (userSearch) {
+        this.authenticated = true;
+        this.currentUser = userSearch;
+      }else{
+        this.authenticated = false;
+        this.currentUser = {};
+      }
+    });
   }
 }
 </script>

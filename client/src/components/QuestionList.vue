@@ -28,26 +28,26 @@ import {eventBus} from '@/main.js';
 
 export default {
   name: 'question-list',
-  props: ['topic', 'user'],
+  props: ['topic', 'currentUser'],
   data(){
     return {
       answers: [],
-      completedTest: null,
+      completedTest: null
     }
   },
   methods:{
     handleSubmit(){
-        const index = this.user.answerSet.findIndex(result => result.category === this.topic.category)
-        for (let question of this.topic.questions){
-            for(let answer of this.answers){
-                if(question.correct_answer === answer){
-                    this.user.answerSet[index].correctAnswers ++;
-                    eventBus.$emit('update-answer', this.user)
-                }else{
-                    this.user.answerSet[index].incorrectAnswers ++;
-                    eventBus.$emit('update-answer', this.user)
-                };
-            }
+      const questions = this.topic.questions
+      const answerSet = this.currentUser.answerSet
+        const index = answerSet.findIndex(result => result.category === this.topic.category)
+        for (let i=0; i<questions.length ; i++){
+          if (questions[i].correct_answer === this.answers[i]){
+              answerSet[index].correctAnswers ++;
+              eventBus.$emit('update-answer', this.currentUser)
+          }else{
+              answerSet[index].incorrectAnswers ++;
+              eventBus.$emit('update-answer', this.currentUser)
+          }
         }
         this.completedTest= 1
     },
