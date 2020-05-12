@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helper/create_Router.js');
 
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
