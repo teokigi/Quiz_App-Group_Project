@@ -18,7 +18,7 @@ import StatsChart from '@/components/StatsChart.vue';
 
 export default {
   name: 'stats',
-  props: ['users'],
+  props: ['users', 'currentUser'],
   components: {
     'stats-chart': StatsChart
   },

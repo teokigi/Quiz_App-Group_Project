@@ -5,9 +5,9 @@
     </div>
     <div class="body">
       <home v-if="viewSelector === 0" />
-      <revision :authenticated="authenticated" :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
-      <test-page :authenticated="authenticated" :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
-      <stats :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 3" />
+      <revision :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
+      <test-page :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
+      <stats :currentUser="currentUser" v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
 </body>
