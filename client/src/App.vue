@@ -1,7 +1,7 @@
 <template lang="html">
   <body id="app">
     <div class="pageHeader">
-      <page-header />
+      <page-header :authenticated="authenticated" :currentUser="currentUser" />
     </div>
     <div class="body">
       <home v-if="viewSelector === 0" />
@@ -73,7 +73,8 @@ export default {
     }),
     eventBus.$on('sign-out', (navNumber) => {
       this.viewSelector =  navNumber
-      this.loginStatus = navNumber
+      this.authenticated = false;
+      this.currentUser = {};
     }),
     eventBus.$on('new-user', (payload) => {
       UsersService.postUser(payload)
@@ -84,13 +85,9 @@ export default {
       if (userSearch) {
         this.authenticated = true;
         this.currentUser = userSearch;
-        console.log(this.authenticated); //FOR TESTING ONLY
-        console.log(this.currentUser); //FOR TESTING ONLY
       }else{
         this.authenticated = false;
         this.currentUser = {};
-        console.log(this.authenticated); //FOR TESTING ONLY
-        console.log(this.currentUser); //FOR TESTING ONLY
       }
     })
   }
