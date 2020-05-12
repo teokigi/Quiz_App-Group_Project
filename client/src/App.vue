@@ -42,7 +42,8 @@ export default {
       users: [],
       loginStatus: 0,
       topics: null,
-      authenticated: false
+      authenticated: false,
+      currentUser: {}
     }
   },
   mounted() {
@@ -82,8 +83,14 @@ export default {
       const userSearch = this.users.find(el => el.emailAddress === payload.emailAddress && el.password === payload.password)
       if (userSearch) {
         this.authenticated = true;
+        this.currentUser = userSearch;
+        console.log(this.authenticated); //FOR TESTING ONLY
+        console.log(this.currentUser); //FOR TESTING ONLY
       }else{
         this.authenticated = false;
+        this.currentUser = {};
+        console.log(this.authenticated); //FOR TESTING ONLY
+        console.log(this.currentUser); //FOR TESTING ONLY
       }
     })
   }
