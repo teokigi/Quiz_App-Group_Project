@@ -1,6 +1,6 @@
 <template lang="html">
 <div>
-  <h3>Welcome! Make a Selection Above!</h3>
+  <h3>Welcome to Exam Buddy! Make a Selection Above!</h3>
 </div>
 </template>
 
