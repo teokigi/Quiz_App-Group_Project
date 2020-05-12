@@ -41,7 +41,8 @@ export default {
       viewSelector: 0,
       users: [],
       loginStatus: 0,
-      topics: null
+      topics: null,
+      authenticated: false
     }
   },
   mounted() {
@@ -76,6 +77,14 @@ export default {
     eventBus.$on('new-user', (payload) => {
       UsersService.postUser(payload)
       .then(user => this.users.push(user))
+    }),
+    eventBus.$on('user-login', (payload) => {
+      const userSearch = this.users.find(el => el.emailAddress === payload.emailAddress && el.password === payload.password)
+      if (userSearch) {
+        this.authenticated = true;
+      }else{
+        this.authenticated = false;
+      }
     })
   }
 }

@@ -49,8 +49,8 @@ export default {
   methods: {
     onLogin() {
       const payload = {
-        loginEmailAddress: this.loginEmailAddress,
-        loginPassword: this.loginPassword
+        emailAddress: this.loginEmailAddress,
+        password: this.loginPassword
       }
       eventBus.$emit('user-login', payload)
     },
