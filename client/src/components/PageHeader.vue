@@ -5,10 +5,10 @@
     </div>
     <div class="nav-links-group">
       <span class="nav-links" v-if="!authenticated" v-on:click="onClickSignInUp">  Sign In/Up </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickRevision"> Revise </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickTest"> Test </span>
+      <span class="nav-links" v-if="authenticated" v-on:click="onClickStats">  Stats </span>
       <span class="nav-links" v-if="authenticated" v-on:click="onClickSignOut"> Sign Out </span>
-      <span class="nav-links" v-on:click="onClickRevision"> Revise </span>
-      <span class="nav-links" v-on:click="onClickTest"> Test </span>
-      <span class="nav-links" v-on:click="onClickStats">  Stats </span>
     </div>
 
   </div>
@@ -19,7 +19,7 @@ import {eventBus} from '@/main.js';
 
 export default {
   name: 'page-header',
-  props: ['authenticated', 'currentUser'],
+  props: ['authenticated'],
   methods: {
     onClickTest() {
       eventBus.$emit('selected-nav-test', 2)

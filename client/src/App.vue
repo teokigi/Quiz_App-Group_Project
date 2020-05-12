@@ -1,13 +1,13 @@
 <template lang="html">
   <body id="app">
     <div class="pageHeader">
-      <page-header :authenticated="authenticated" :currentUser="currentUser" />
+      <page-header :authenticated="authenticated" />
     </div>
     <div class="body">
       <home v-if="viewSelector === 0" />
-      <revision :topics="topics" v-if="viewSelector === 1" />
-      <test-page :topics="topics" :users="users" v-if="viewSelector === 2" />
-      <stats :users="users" v-if="viewSelector === 3" />
+      <revision :authenticated="authenticated" :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
+      <test-page :authenticated="authenticated" :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
+      <stats :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 3" />
       <sign-up v-if="viewSelector === 4" />
     </div>
 </body>
