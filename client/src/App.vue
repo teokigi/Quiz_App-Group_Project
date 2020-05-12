@@ -8,7 +8,7 @@
       <revision :topics="topics" :currentUser="currentUser" v-if="viewSelector === 1" />
       <test-page :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
       <stats :currentUser="currentUser" v-if="viewSelector === 3" />
-      <sign-up v-if="viewSelector === 4" />
+      <sign-up :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 4" />
     </div>
 </body>
 </template>
@@ -89,7 +89,17 @@ export default {
         this.authenticated = false;
         this.currentUser = {};
       }
-    })
+    }),
+    eventBus.$on('auto-login', (autoLoginPayload) => {
+      const userSearch = this.users.find(el => el.emailAddress === autoLoginPayload.emailAddress && el.password === autoLoginPayload.password)
+      if (userSearch) {
+        this.authenticated = true;
+        this.currentUser = userSearch;
+      }else{
+        this.authenticated = false;
+        this.currentUser = {};
+      }
+    });
   }
 }
 </script>

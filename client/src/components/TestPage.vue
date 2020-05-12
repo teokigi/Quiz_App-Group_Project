@@ -28,12 +28,12 @@ export default {
   },
   components: {
     'question-list': QuestionList
-    },
-    methods:{
-        resetValues(resVal){
-            this.selectedUser = this.selectedTopic = resVal;
-        }
+  },
+  methods:{
+    resetValues(resVal){
+      this.selectedUser = this.selectedTopic = resVal;
     }
+  }
 }
 </script>
 

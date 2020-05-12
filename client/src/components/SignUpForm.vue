@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div>
+    <div v-if="!authenticated">
       <h3>Create a New Account?</h3>
       <form id="new-user-form" v-on:submit.prevent="onSubmit()">
         <label for="nickname-field">Nickname: </label>
@@ -16,7 +16,7 @@
       </form>
     </div>
 
-    <div>
+    <div v-if="!authenticated">
       <h3>Login Here</h3>
       <form id="login-form" v-on:submit.prevent="onLogin()">
         <label for="emailAddress-login">Email Address: </label>
@@ -28,14 +28,21 @@
         <button type="submit"> Login </button>
       </form>
     </div>
+
+    <div v-if="authenticated">
+      <h3>Welcome {{currentUser.nickname}}!</h3>
+    </div>
+
   </div>
 </template>
+
 
 <script>
 import {eventBus} from '@/main.js';
 
 export default {
   name: 'sign-up-form',
+  props: ['authenticated', 'currentUser'],
   data() {
     return {
       newUser: null,
@@ -53,6 +60,7 @@ export default {
         password: this.loginPassword
       }
       eventBus.$emit('user-login', payload)
+      this.loginEmailAddress = this.loginPassword = null
     },
     onSubmit() {
       const payload = {
@@ -60,18 +68,31 @@ export default {
         emailAddress: this.newEmailAddress,
         password: this.newPassword,
         answerSet:[
-            {category:"Biology: The Ecosystem",
-            correctAnswers:0,
-            incorrectAnswers:0},
-            {category:"Language: Japanese",
-            correctAnswers:0,
-            incorrectAnswers:0},
-            {category:"Classical Studies: The Odyssey",
-            correctAnswers:0,
-            incorrectAnswers:0}
+            {
+              category:"Biology: The Ecosystem",
+              correctAnswers:0,
+              incorrectAnswers:0
+            },
+            {
+              category:"Language: Japanese",
+              correctAnswers:0,
+              incorrectAnswers:0
+            },
+            {
+              category:"Classical Studies: The Odyssey",
+              correctAnswers:0,
+              incorrectAnswers:0
+            }
           ]
         }
       eventBus.$emit('new-user', (payload))
+
+      const autoLoginPayload = {
+        emailAddress: this.newEmailAddress,
+        password: this.newPassword
+      }
+      eventBus.$emit('auto-login', autoLoginPayload)
+      this.newUser = this.newEmailAddress = this.newPassword = null
     }
   }
 }
