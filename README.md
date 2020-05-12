@@ -1,5 +1,4 @@
 # ABOUT THE PROJECT
----
 This is an app designed to be an educational hub to help students in the primary or secondary education system with interactive learning. A client can customise the content including revision material, test topics, test questions amongst other things. The app will generate a visual representation of the student's scores in different topics to inspire learning and encourage continued development.
 
 The brief is as follows:
@@ -18,7 +17,7 @@ A user should be able to:
 - Use charts or maps to display your information to the page.
 
 # HOW TO RUN THE APP
----
+
 ### NOTE: The app was tested in Google Chrome and so it is advised to use Chrome when navigating.
 
 A. Download the Repo using the green "Clone or Download" button at the top right of this project's GitHub page.
