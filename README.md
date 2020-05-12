@@ -20,19 +20,20 @@ A user should be able to:
 
 ### NOTE: The app was tested in Google Chrome and so it is advised to use Chrome when navigating.
 
-A. Download the Repo using the green "Clone or Download" button at the top right of this project's GitHub page.
-B. Using Terminal (or another CLI) navigate to the "project" folder and then the "server" folder and run the following commands:
-      1) npm i
-      2) npm i mongodb express body-parser
-      3) npm i -D cors nodemon
-      4) npm run seeds
-      5) npm run server:dev
-      6) run mongod
-C. Open another tab in your CLI and navigate one level up before navigating to the "client" folder and run the following commands:
-      1) npm i
-      2) npm run serve
-D. Open Chrome and enter localhost:8080 in the address bar.
-E. Enjoy!
+1. Download the Repo using the green "Clone or Download" button at the top right of this project's GitHub page.
+
+2. Using Terminal (or another CLI) navigate to the "project" folder and then the "server" folder and run the following commands:
+  - npm i
+  - npm i mongodb express body-parser
+  - npm i -D cors nodemon
+  - npm run seeds
+  - npm run server:dev
+  - run mongod
+3. Open another tab in your CLI and navigate one level up before navigating to the "client" folder and run the following commands:
+  - npm i
+  - npm run serve
+4. Open Chrome and enter localhost:8080 in the address bar.
+5. Enjoy!
 
 ---
 ---
