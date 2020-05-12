@@ -6,8 +6,11 @@
             <div class="revisionHeading">
                 Care To study something new {{currentUser.nickname}}?
             </div>
+            <br>
+            <br>
+            <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
+
             <div>
-                <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
                 <select class="selectorTxt" name="revision" v-model="selectedTopic">
                     <option disabled value="">select a topic...</option>
                     <option v-for="topic of topics" :value="topic">{{topic.category}}</option>

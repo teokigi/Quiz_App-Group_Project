@@ -9,6 +9,9 @@
       <test-page :topics="topics" :currentUser="currentUser" v-if="viewSelector === 2" />
       <stats :currentUser="currentUser" v-if="viewSelector === 3" />
       <sign-up :authenticated="authenticated" :currentUser="currentUser" v-if="viewSelector === 4" />
+      <div v-if="failMsg">
+        {{failMsg}}
+      </div>
     </div>
 </body>
 </template>
@@ -43,15 +46,13 @@ export default {
       loginStatus: 0,
       topics: null,
       authenticated: false,
-      currentUser: {}
+      currentUser: {},
+      failMsg: ""
     }
   },
   mounted() {
     TopicsService.getTopics()
     .then(topics => this.topics = topics)
-
-    UsersService.getUsers()
-    .then(users => this.users = users)
 
     eventBus.$on('update-answer', (user) => {
       const payload = {
@@ -77,29 +78,26 @@ export default {
       this.currentUser = {};
     }),
     eventBus.$on('new-user', (payload) => {
+      const updatedPayload = {
+        nickname: payload.nickname,
+        answerSet: payload.answerSet
+      }
       UsersService.postUser(payload)
-      .then(user => this.users.push(user))
+      this.currentUser = updatedPayload
+      this.authenticated = true
     }),
     eventBus.$on('user-login', (payload) => {
-      const userSearch = this.users.find(el => el.emailAddress === payload.emailAddress && el.password === payload.password)
-      if (userSearch) {
-        this.authenticated = true;
-        this.currentUser = userSearch;
-      }else{
-        this.authenticated = false;
-        this.currentUser = {};
-      }
-    }),
-    eventBus.$on('auto-login', (autoLoginPayload) => {
-      const userSearch = this.users.find(el => el.emailAddress === autoLoginPayload.emailAddress && el.password === autoLoginPayload.password)
-      if (userSearch) {
-        this.authenticated = true;
-        this.currentUser = userSearch;
-      }else{
-        this.authenticated = false;
-        this.currentUser = {};
-      }
-    });
+      UsersService.credVerifier(payload)
+      .then(user => {
+        if (typeof user === 'object') {
+          this.currentUser = user
+          this.authenticated = true
+          this.failMsg = ""
+        }else if (typeof user === 'string'){
+        this.failMsg = "Incorrect email or password!"
+        }
+      })
+    })
   }
 }
 </script>

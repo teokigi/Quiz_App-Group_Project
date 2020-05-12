@@ -60,10 +60,13 @@ const createRouter = function (collection) {
 
       if (emailAddress && password){
           const user = await collection.findOne({emailAddress:emailAddress, password:password})
-
+          if (!user) {
+            return res.json("No user found!");
+          } else {
           const { nickname, answerSet} = user;
           const result = {nickname,answerSet}
           res.json(result)
+          }
       }
   });
 

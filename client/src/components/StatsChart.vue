@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="selectedStatsWrapper">
 
-    <highcharts :options="chartOptions"></highcharts>
+    <highcharts class="chart-style" :options="chartOptions"></highcharts>
 
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
           type: 'column'
         },
         title: {
+          style: {
+            fontFamily: 'nunito',
+            fontSize: 30
+          },
           text: this.currentUser.nickname + "'s Stats"
         },
         yAxis: {
@@ -57,7 +61,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 .selectedStatsWrapper{
     margin:30px;
 }
+
 </style>
