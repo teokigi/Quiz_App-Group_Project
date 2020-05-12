@@ -55,6 +55,21 @@ const createRouter = function (collection) {
 
   });
 
+  router.post('/login', async(req, res) => {
+      const { emailAddress, password} = req.body
+
+      if (emailAddress && password){
+          const user = await collection.findOne({emailAddress:emailAddress, password:password})
+          if (!user) {
+            return res.json("No user found!");
+          } else {
+          const { nickname, answerSet} = user;
+          const result = {nickname,answerSet}
+          res.json(result)
+          }
+      }
+  });
+
   return router;
 
 };

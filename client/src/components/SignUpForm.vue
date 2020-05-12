@@ -86,12 +86,6 @@ export default {
           ]
         }
       eventBus.$emit('new-user', (payload))
-
-      const autoLoginPayload = {
-        emailAddress: this.newEmailAddress,
-        password: this.newPassword
-      }
-      eventBus.$emit('auto-login', autoLoginPayload)
       this.newUser = this.newEmailAddress = this.newPassword = null
     }
   }
