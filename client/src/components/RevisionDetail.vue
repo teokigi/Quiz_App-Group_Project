@@ -5,7 +5,7 @@
             {{selectedTopic.category}}
         </div>
         <div class="detailTxtSummary">
-            <p>Learning resource to the right will give you all the information you need to ace our test!!</p>
+            <p>The learning resource to the right will give you all the information you need to ace our test!!</p>
         </div>
     </div>
     <div class="detailVid">

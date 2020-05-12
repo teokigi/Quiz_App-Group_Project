@@ -4,7 +4,7 @@
 
         <div class="revisionSelector" v-if="!selectedTopic">
             <div class="revisionHeading">
-                Care To study something new?
+                Care To study something new {{currentUser.nickname}}?
             </div>
             <div>
                 <label for="revision" class="selectorTxt">Select a Revision Topic: </label>
@@ -28,7 +28,7 @@ import RevisionDetail from '@/components/RevisionDetail.vue';
 
 export default {
   name: 'revision',
-  props: ['topics'],
+  props: ['topics', 'currentUser', 'authenticated'],
   data() {
     return {
       selectedTopic: null

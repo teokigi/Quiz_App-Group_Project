@@ -1,16 +1,7 @@
 <template lang="html">
   <div class="">
 
-
-    <div v-if="!selectedUser">
-      <h2>Start a Test</h2>
-      <label for="revision">Select a User: </label>
-      <select id="revision" v-model="selectedUser">
-        <option disabled value="">select a user</option>
-        <option v-for="user of users" :value="user">{{user.nickname}}</option>
-      </select>
-    </div>
-    <div v-if="selectedUser&&!selectedTopic">
+    <div v-if="!selectedTopic">
       <h2>Start a Test</h2>
       <label for="revision">Select a Test Topic: </label>
       <select id="revision"v-model="selectedTopic">
@@ -19,7 +10,7 @@
       </select>
     </div>
 
-    <question-list v-if="selectedTopic" :topic="selectedTopic" :user="selectedUser" @resetValues="resetValues"/>
+    <question-list v-if="selectedTopic" :topic="selectedTopic" :currentUser="currentUser" @resetValues="resetValues"/>
 
   </div>
 </template>
@@ -27,14 +18,12 @@
 <script>
 import QuestionList from '@/components/QuestionList.vue';
 
-
 export default {
   name: 'test-page',
-  props: ['topics', 'users'],
+  props: ['topics', 'currentUser'],
   data() {
     return {
       selectedTopic: null,
-      selectedUser: null,
     }
   },
   components: {
